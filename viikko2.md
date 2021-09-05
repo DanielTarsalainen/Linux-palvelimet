@@ -46,7 +46,7 @@ Toiseksi ohjelmaksi valitsin "Wikit" -nimisen ohjelman, jolla voi tehdä Wikiped
 \
 &nbsp;
 
-*Aloitin tehtävien teon hyvissä ajoin jo 31.8 oppituntien jälkeen. Tein tehtäviä kolmena päivänä: tiistaina, perjantaina sekä sunnuntaina. Kaiken kaikkiaan tehtäviin kului noin kuusi ja puoli tuntia.*
+*Aloitin tehtävien teon hyvissä ajoin jo 31.8 oppituntien jälkeen. Tein tehtäviä kolmena päivänä: tiistaina, perjantaina sekä sunnuntaina. Kaiken kaikkiaan tehtäviin kului aikaa noin kuusi ja puoli tuntia.*
 
 \
 &nbsp;
