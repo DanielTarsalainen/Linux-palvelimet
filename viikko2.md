@@ -13,11 +13,11 @@
 *Sain tiistaina 31.8 oppituntien jälkeen onnistuneen toimenpiteen näkymään system.logissa tehtyäni
 `echo "Testiviesti" | systemd-cat`<sup>1</sup> -komennon rootista.*
 
-`sudo tail -f /var/log/syslog`<sup>1</sup> *-komennolla pääsin tarkastelemaan miltä toimenpide näyttää järjestelmän logissa. Viestin voi lukea alla näkyvän kuvan viimeiseltä riviltä*
+*`sudo tail -f /var/log/syslog`<sup>1</sup> -komennolla pääsin tarkastelemaan miltä toimenpide näyttää järjestelmän logissa. Viestin voi lukea alla näkyvän kuvan viimeiseltä riviltä. Ilmoituksessa näkyy ilmoituksen tekijä sekä cat, joka tarkoittaa sitä, että ilmoitus tulostaa tiettyä sisältöä. 
 
 ![image](https://user-images.githubusercontent.com/77921212/132124635-fb1a8568-ae2c-4a24-8505-a24ef7b55ce5.png)
 
-*Toisen ilmoituksen sain käyttämällä `sudo apt update` -komentoa saatavilla olevien pakettien päivittämiseen, mutta salasanaa kysyttäessä annoin tarkoituksella väärän salasanan. Alla näkyvässä logissa näkyy päivämäärä ja kellonaika sekunnin kymmenesosan tarkkuudella. Viestistä voi myös lukea ilmoituksen tyypin: “authentication failure”. Tein yllä olevan toimenpiteen auth.logissa, jonne tallentuu kaikki tunnistautumiseen liittyvät virhetilanteet.*
+*Toisen ilmoituksen sain käyttämällä `sudo apt-get update` -komentoa saatavilla olevien pakettien päivittämiseen, mutta salasanaa kysyttäessä annoin tarkoituksella väärän salasanan. Alla näkyvässä logissa näkyy päivämäärä ja kellonaika sekunnin kymmenesosan tarkkuudella. Viestistä voi myös lukea ilmoituksen tyypin: “authentication failure”. Tein yllä olevan toimenpiteen auth.logissa, jonne tallentuu kaikki tunnistautumiseen liittyvät virhetilanteet.*
 
 ![image](https://user-images.githubusercontent.com/77921212/132124739-79fe8d29-2067-4764-b918-372930bfb347.png)
 \
@@ -46,7 +46,7 @@ Toiseksi ohjelmaksi valitsin "Wikit" -nimisen ohjelman, jolla voi tehdä Wikiped
 \
 &nbsp;
 
-*Aloitin tehtävien teon hyvissä ajoin jo 31.8 oppituntien jälkeen. Tein tehtäviä kolmena päivänä: tiistaina, perjantaina sekä sunnuntaina. Kaiken kaikkiaan tehtäviin kului noin viisi ja puoli tuntia.*
+*Aloitin tehtävien teon hyvissä ajoin jo 31.8 oppituntien jälkeen. Tein tehtäviä kolmena päivänä: tiistaina, perjantaina sekä sunnuntaina. Kaiken kaikkiaan tehtäviin kului noin kuusi ja puoli tuntia.*
 
 \
 &nbsp;
