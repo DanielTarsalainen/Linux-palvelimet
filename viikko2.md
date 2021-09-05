@@ -40,6 +40,9 @@ Toiseksi ohjelmaksi valitsin "Wikit" -nimisen ohjelman, jolla voi tehdä Wikiped
 ![image](https://user-images.githubusercontent.com/77921212/132127845-2d7dbca7-fd68-4bf5-80c5-261287d0deee.png)
 
 *Viimeiseksi asensin "Geeksforgeeks" -sivun artikkelin<sup>6</sup> suositteleman ClamAV nimisen anti-virus ohjelman. Asennus saatiin aikaan `sudo apt-get install clamav clamav-daemon`<sup>7</sup> -komennolla. Kokeilin sovellusta skannaamalla yhden Python tiedostoni `clamscan postitoimipaikka.py`<sup>7</sup> -komennolla. Vaikka ohjelma on melko yksinkertainen, siitä voi olla paljonkin hyötyä järjestelmän pitämisessä puhtaana haittaohjelmista.*
+
+![image](https://user-images.githubusercontent.com/77921212/132128667-5c453451-7359-4fab-b4c8-ea4c237f0215.png)
+
 \
 &nbsp;
 
