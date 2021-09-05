@@ -13,7 +13,7 @@
 *Sain tiistaina 31.8 oppituntien jälkeen onnistuneen toimenpiteen näkymään system.logissa tehtyäni
 `echo "Testiviesti" | systemd-cat`<sup>1</sup> -komennon rootista.*
 
-*`sudo tail -f /var/log/syslog`<sup>1</sup> -komennolla pääsin tarkastelemaan miltä toimenpide näyttää järjestelmän logissa. Viestin voi lukea alla näkyvän kuvan viimeiseltä riviltä. Ilmoituksessa näkyy ilmoituksen tekijä sekä cat, joka tarkoittaa sitä, että ilmoitus tulostaa tiettyä sisältöä. 
+*`sudo tail -f /var/log/syslog`<sup>1</sup> -komennolla pääsin tarkastelemaan miltä toimenpide näyttää järjestelmän logissa. Viestin voi lukea alla näkyvän kuvan viimeiseltä riviltä. Ilmoituksessa näkyy ilmoituksen tekijä sekä cat, joka tarkoittaa sitä, että ilmoitus tulostaa tiettyä sisältöä.*
 
 ![image](https://user-images.githubusercontent.com/77921212/132124635-fb1a8568-ae2c-4a24-8505-a24ef7b55ce5.png)
 
