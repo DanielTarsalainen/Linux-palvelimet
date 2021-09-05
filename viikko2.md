@@ -31,7 +31,7 @@
 \
 &nbsp;
 
-*Kolmannessa tehtävässä asensin ensimmäiseksi Fzf nimisen ohjelman, jota käytetään ohjelmien nopeaan hakemiseen<sup>3</sup>. Käytin asentamiseen komentoa `sudo apt install fzf`<sup>3</sup>. Ohjelman sai käynnistettyä kirjoittamalla vaan haluttuun polkuun `fzf`<sup>3</sup>. Itse tein haun "Home" -hakemistossa. Seuraavaksi näytölle ilmestyi kansion kaikki tiedostot ja punainen nuoli, jolla voi valita tietyn tiedoston. Työkalu on siitä näppärä, että kansion sisällä ei tarvitse erikseen listata tiedostoja, vaan ne näkee heti ruudulla.*
+*Kolmannessa tehtävässä asensin ensimmäiseksi Fzf nimisen ohjelman, jota käytetään ohjelmien nopeaan hakemiseen<sup>3</sup>. Käytin asentamiseen komentoa `sudo apt install fzf`<sup>3</sup>. Ohjelman sai käynnistettyä kirjoittamalla vaan haluttuun polkuun `fzf`<sup>3</sup>. Itse tein haun "Home" -hakemistossa. Seuraavaksi näytölle ilmestyi kansion kaikki tiedostot ja punainen nuoli, jolla voi valita tietyn tiedoston. Ohjelma on siitä näppärä, että kansion sisällä ei tarvitse erikseen listata tiedostoja, vaan ne näkee heti ruudulla.*
 
 ![image](https://user-images.githubusercontent.com/77921212/132128031-b8f4b093-1381-4249-9f03-b978151b8752.png)
 
