@@ -31,7 +31,15 @@ Sep 10 12:21:26 DanielinDebian apachectl[3524]: Invalid command 'katsotaan', per
 Sep 10 12:21:26 DanielinDebian systemd[1]: Failed to start The Apache HTTP Server.
 
 
-
 i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.
 
+
+::1 - - [10/Sep/2021:13:35:23 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+
+127.0.0.1 - - [10/Sep/2021:14:00:21 +0300] "GET /icons/openlogo-75.png HTTP/1.1" 304 249 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+
+ 
+
 m) Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.
+
+
