@@ -5,7 +5,7 @@
 ![kuva](https://user-images.githubusercontent.com/77921212/132941775-c5cb3824-7653-4140-af6e-af5d40370085.png)
 
 
-*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot sudo 2enmod userdir, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 palvelimen uudestaan ja loin uudn hakemiston nimellä "public_html" omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston `cd public_html -komennolla` ja tein hakemistoon tiedston nimellä "index.html". Tähän käytin komentoa `nano index.html`. html -tiedostoon tein yksinkertaisen html-rakenteen. Alla kyseinen tiedosto selaimessa.*
+*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot `sudo 2enmod userdir`, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 palvelimen uudestaan komennolla `sudo systemctl restart apache2` ja loin uuden hakemiston nimellä "public_html" omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston `cd public_html -komennolla` ja tein hakemistoon tiedston nimellä "index.html". Tähän käytin komentoa `nano index.html`. html -tiedostoon tein yksinkertaisen html-rakenteen. Alla kyseinen tiedosto selaimessa.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941794-41cccbc4-9258-4d70-a256-49679606aa62.png)
 
@@ -20,17 +20,19 @@
 > ::1 - - [10/Sep/2021:11:24:48 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841     "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
   
  
-*Toisen rivin sisältö on muuten sama, mutta status ja aika sekä päivämäärä ovat eri. GET-pyynnön polku on myös eri kuin edeltävässä ja 404 kertoo, että kyseisellä polulla ei löydy nettisivua.*
+*Toisen rivin sisältö on muuten sama, mutta status, aika sekä päivämäärä ovat eri. GET-pyynnön polku on myös eri kuin edeltävässä ja 404 kertoo, että kyseisellä polulla ei löydy nettisivua.*
+  
 > ::1 - - [10/Sep/2021:11:58:45 +0300] "GET /~dan HTTP/1.1" 404 488 "-"           "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
 
 *d) Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.*
 
-*Etsin apache2 kansion etc -polussa "/etc/apache2". Kansion sisällä avasin "apache2.conf" -tiedoston ja lisäsin rivin, jossa lukee "katsotaan kaatuuko palvelin". Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan `sudo systemctl restart apache2`. Heti käynnistyksen yhteydessä tuli error:*
+*Etsin apache2 kansion etc -polussa "/etc/apache2". Kansion sisällä avasin "apache2.conf" -tiedoston komennolla sudo `nano apache2.conf` ja lisäsin rivin, jossa lukee teksti: "katsotaan kaatuuko palvelin". Sudoa jouduin käyttämään sen takia, että ilman sudoa komentorivistä tuli viestiä, että tarvittavia oikeuksia ei ole. Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan `sudo systemctl restart apache2`. Heti käynnistyksen yhteydessä tuli error-viesti:*
 
 > Job for apache2.service failed because the control process exited with error code.
 See "systemctl status apache2.service" and "journalctl -xe" for details.
 
+*Virheviestistä voi tulkita, että apache2:n hallintajärjestelmä havaitsi, että jossain konfigurointitiedostossa on virheellisetä koodia*
 
 *Tämän jälkeen menin taas Apachen access.logiin ja poimin sieltä kyseistä erroria ilmaisevat rivit:*
 
