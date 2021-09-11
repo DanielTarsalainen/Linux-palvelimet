@@ -1,11 +1,11 @@
 *a) Asenna Apache, laita käyttäjien kotisivut (http://example.com/~tero) toimimaan. Testaa esimerkkikotisivulla.*
 
-*Aloitin palvelimen asennuksen kirjoittamalla sudo apt-get update komennon, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 toimivuuden tekemällä komennon sudo systemctl start apache2. Curl localhost -komennolla sain komentoriville näkyviin apache2 oletussivun lokaalisti. Alla kuva tulostuksesta.*
+*Aloitin palvelimen asennuksen kirjoittamalla sudo apt-get update komennon, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 toimivuuden tekemällä komennon sudo systemctl start apache2. `Curl localhost` -komennolla sain komentoriville näkyviin apache2 oletussivun lokaalisti. Alla kuva tulostuksesta.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941775-c5cb3824-7653-4140-af6e-af5d40370085.png)
 
 
-*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot sudo 2enmod userdir, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 palvelimen uudestaan ja loin uudn hakemiston ("public_html") omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston cd public_html -komennolla ja tein hakemistoon tiedston nimellä index.html. Tähän käytin komentoa nano index.html. html -tiedostoon tein yksinkertaisen html rakenteen. Alla kyseinen tiedosto selaimessa.*
+*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot sudo 2enmod userdir, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 palvelimen uudestaan ja loin uudn hakemiston nimellä "public_html" omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston `cd public_html -komennolla` ja tein hakemistoon tiedston nimellä "index.html". Tähän käytin komentoa `nano index.html`. html -tiedostoon tein yksinkertaisen html-rakenteen. Alla kyseinen tiedosto selaimessa.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941794-41cccbc4-9258-4d70-a256-49679606aa62.png)
 
