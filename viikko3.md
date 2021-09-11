@@ -36,9 +36,13 @@ Sep 10 12:21:26 DanielinDebian systemd[1]: Failed to start The Apache HTTP Serve
 
 i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.
 
+Käytin lokeihin sudo tail -f /var/log/apache2/access.log -komentoa, jolla sain realiajassa lokit näkyviin. 
 
 ::1 - - [10/Sep/2021:13:35:23 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 Kyseisen tilanteen aiheutin siten, että pääsin onnistuneesti omalle kotisivulleni. Riviltä voi analysoida, että GET tarkoittaa tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta(1). HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni sivun tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron
+
+::1 - - [11/Sep/2021:08:57:41 +0300] "GET /~danskuba HTTP/1.1" 404 487 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+Kyseisen tilanteen aiheutin kirjoittamalla tahalleen selaimeen väärän nimen. Tästä seurasi 404 error eli "Not Found". Ainoa ero yllä olveaan riviin on login päivämäärä, statuksen tyyppi eli 404 ja eri tavukoko: 487. 
 
 
 
