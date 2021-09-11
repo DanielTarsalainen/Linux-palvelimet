@@ -15,32 +15,32 @@
 
 *Käytin lokien hakemiseen komentoa: `sudo cat /var/log/apache2/access.log`*
 
-*Kyseisen tilanteen aiheutin siten, että pääsin onnistuneesti omalle kotisivulleni. Riviltä voi analysoida päivämääräärän, kellonajan sekunninkymmenesosan tarkkuudella, sekä myös 0300+, joka tarkoittaa Itä-Euroopan kesäaikaa. GET tarkoittaa puolestaan tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta(1). HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni haettavan alueen tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron*
+*Ensimmäiseltä riviktö voi analysoida päivämääräärän, kellonajan sekunninkymmenesosan tarkkuudella, sekä myös "0300+", joka tarkoittaa Itä-Euroopan kesäaikaa. GET tarkoittaa puolestaan tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta<sup>1<sup/>. HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni haettavan alueen tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron*
   
 > ::1 - - [10/Sep/2021:11:24:48 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841     "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
   
  
-*Toisen login sisältö on muuten sama, mutta virhestatus ja aika sekä päivämäärä ovat eri. GET-pyynnön polku on myös eri kuin edeltävässä, tarkoittaen, että kyseisellä polulla ei löydy nettisivua.*
+*Toisen rivin sisältö on muuten sama, mutta status ja aika sekä päivämäärä ovat eri. GET-pyynnön polku on myös eri kuin edeltävässä ja 404 kertoo, että kyseisellä polulla ei löydy nettisivua.*
 > ::1 - - [10/Sep/2021:11:58:45 +0300] "GET /~dan HTTP/1.1" 404 488 "-"           "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
 
 *d) Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.*
 
-*Etsin apache2 kansion etc polussa "/etc/apache2". Kansion sisällä avasin "apache2.conf" -tiedoston ja lisäsin rivin, jossa lukee "katsotaan kaatuuko palvelin". Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan `sudo systemctl restart apache2`. Heti käynnistyksen yhteydessä tuli error:*
+*Etsin apache2 kansion etc -polussa "/etc/apache2". Kansion sisällä avasin "apache2.conf" -tiedoston ja lisäsin rivin, jossa lukee "katsotaan kaatuuko palvelin". Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan `sudo systemctl restart apache2`. Heti käynnistyksen yhteydessä tuli error:*
 
 > Job for apache2.service failed because the control process exited with error code.
 See "systemctl status apache2.service" and "journalctl -xe" for details.
 
 
-*Tämän jälkeen menin taas Apachen access.logiin ja poimin sieltä kyseistä erroria ilmaisevat logit:*
+*Tämän jälkeen menin taas Apachen access.logiin ja poimin sieltä kyseistä erroria ilmaisevat rivit:*
 
 > Sep 10 12:21:26 DanielinDebian systemd[1]: Failed to start The Apache HTTP Server.
 
-*Kyseisestä logista voi nähdä tarkan ajankohdan, järjestelmän ylläpitäjän nimen ja systemd (tarkoittaa Linuxin alustamis- ja palvelunhallintajärjestelmää)<sup>3</sup> Viimeiseksi voi lukea tarkan virheviestin, eli Apachen HTTP Serverin käynnistys epäonnistui*
+*Kyseiseltä riviltä voi nähdä tarkan päivämäärän ja kellonajan, järjestelmän ylläpitäjän nimen ja systemd (tarkoittaa Linuxin alustamis- ja palvelunhallintajärjestelmää)<sup>3</sup> Viimeiseksi voi lukea tarkan virheviestin, eli Apachen HTTP Serverin käynnistys epäonnistui*
 
 > Sep 10 12:21:26 DanielinDebian apachectl[3524]: Invalid command 'katsotaan', perhaps misspelled or defined by a module not included in the server configuration
 
-*Toinen logi on muuten hyvin samanlainen, mutta Apachen controlleri(4), kertoo, että palvelimen konfigutoinnissa on vääränlainen komento.*
+*Toinen logi on muuten hyvin samanlainen, mutta Apachen controlleri(4), kertoo, että palvelimen konfiguroinnissa on vääränlainen komento.*
 
 
 *i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.*
@@ -61,7 +61,7 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 
 > ::1 - - [11/Sep/2021:10:27:44 +0300] "GET /~danskubansku/ HTTP/1.1" 403 491 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
-*Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi status 403 eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon. Login muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
+*Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi "status 403" eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon, koska se ei ole nimetty standardin mukaisella tavalla, eli public_html. Rivin muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
 
 
 
