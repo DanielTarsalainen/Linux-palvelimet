@@ -19,6 +19,7 @@ sudo cat /var/log/apache2/access.log
 
 
 
+
 d) Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.
 
 etsin apache2 kansion /etc/apache2. kansion sisällä avasin apache2.conf tiedoston ja lisäsin rivin, jossa lukee "katsotaan kaatuuko palvelin". Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan sudo systemctl restart apache2. Heti käynnistyksen yhteydessä tuli error: Job for apache2.service failed because the control process exited with error code.
@@ -31,15 +32,19 @@ Sep 10 12:21:26 DanielinDebian apachectl[3524]: Invalid command 'katsotaan', per
 Sep 10 12:21:26 DanielinDebian systemd[1]: Failed to start The Apache HTTP Server.
 
 
+
+
 i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.
 
 
 ::1 - - [10/Sep/2021:13:35:23 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+Kyseisen tilanteen aiheutin siten, että pääsin onnistuneesti omalle kotisivulleni. Riviltä voi analysoida, että GET tarkoittaa tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta(1). HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni sivun tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron
 
-127.0.0.1 - - [10/Sep/2021:14:00:21 +0300] "GET /icons/openlogo-75.png HTTP/1.1" 304 249 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+
 
  
+Lähteet:
 
-m) Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.
-
+(1) https://rapidapi.com/blog/api-glossary/http-request-methods/ 
+(2) 
 
