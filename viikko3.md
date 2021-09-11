@@ -1,6 +1,6 @@
 *a) Asenna Apache, laita käyttäjien kotisivut (http://example.com/~tero) toimimaan. Testaa esimerkkikotisivulla.*
 
-*Aloitin palvelimen asennusken kirjoittamalla sudo apt-get update komennon, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein sudo apt-get install apache2 komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 toimivuuden tekemällä komennon sudo systemctl start apache2. Curl localhost -komennolla sain komentoriville näkyviin apache2 oletussivun lokaalisti. Alla kuva tulostuksesta.*
+*Aloitin palvelimen asennuksen kirjoittamalla sudo apt-get update komennon, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 toimivuuden tekemällä komennon sudo systemctl start apache2. Curl localhost -komennolla sain komentoriville näkyviin apache2 oletussivun lokaalisti. Alla kuva tulostuksesta.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941775-c5cb3824-7653-4140-af6e-af5d40370085.png)
 
@@ -61,7 +61,7 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 
 > ::1 - - [11/Sep/2021:10:27:44 +0300] "GET /~danskubansku/ HTTP/1.1" 403 491 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
-*Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi "status 403" eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon, koska se ei ole nimetty standardin mukaisella tavalla, eli public_html. Rivin muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
+*Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi "Status 403" eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon, koska se ei ole nimetty standardin mukaisella tavalla, eli public_html. Rivin muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
 
 
 
