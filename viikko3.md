@@ -39,10 +39,18 @@ i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin?
 Käytin lokeihin sudo tail -f /var/log/apache2/access.log -komentoa, jolla sain realiajassa lokit näkyviin. 
 
 ::1 - - [10/Sep/2021:13:35:23 +0300] "GET /~danskubansku/ HTTP/1.1" 200 841 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
-Kyseisen tilanteen aiheutin siten, että pääsin onnistuneesti omalle kotisivulleni. Riviltä voi analysoida, että GET tarkoittaa tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta(1). HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni sivun tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron
+
+Kyseisen tilanteen aiheutin siten, että pääsin onnistuneesti omalle kotisivulleni. Riviltä voi analysoida, että GET tarkoittaa tenkniikkaa, jolla haetaan ja pyydetään dataa joltain tietyltä nettisivulta(1). HTTP/1.1 tarkoittaa HTTP:n versiota ja 200 ilmaisee, että tapahtuma oli onnistunut. 841 puolestaan tarkoittaa muistaakseni haettavan alueen tavukokoa. Rivin viimeinen kaistele kertoo yksityiskohtaisesti tietoa selaimesta. Mozilla/5.0 tarkoittaa Mozillan versionumeroa, "X11; Linux x86_64; rv:78:0" kertoo, että kyseinen selain on tarkoitettu 64 bittiselle Linuxille. "Gecko/20100101" puolestaan kertoo firefoxin selainmoottorin nimen ja versionumeron. Viimeinen "Firefox/78.0" puolestaan kertoo Firefoxin versionumeron
 
 ::1 - - [11/Sep/2021:08:57:41 +0300] "GET /~danskuba HTTP/1.1" 404 487 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
-Kyseisen tilanteen aiheutin kirjoittamalla tahalleen selaimeen väärän nimen. Tästä seurasi 404 error eli "Not Found". Ainoa ero yllä olveaan riviin on login päivämäärä, statuksen tyyppi eli 404 ja eri tavukoko: 487. 
+
+Kyseisen tilanteen aiheutin kirjoittamalla palvelimeen tahalleen väärän sivun. Tästä seurasi 404 error eli "Not Found". Ainoa ero yllä olveaan riviin on login päivämäärä ja aika, statuksen tyyppi eli 404 ja eri tavukoko: 487. 
+
+::1 - - [11/Sep/2021:09:42:37 +0300] "GET /icons/openlogo-75.png HTTP/1.1" 304 249 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
+
+Kyseisen tilanteen aiheutin avaamalla Apachen oletussivun palvelimelta. 304 error tarkoittaa, sitä, että sivu ei ole päivittynyt viime haun jälkeen(2). Ilmeisesti siis loki havaitsee, että openlogo-75-png on pysynyt samana, joten sen vuoksi syntyy status 304. Muut login osat vastaavat aiemmin esitettyjä rivejä päivämäärää ja aikaa lukuunottamatta
+
+
 
 
 
@@ -50,5 +58,5 @@ Kyseisen tilanteen aiheutin kirjoittamalla tahalleen selaimeen väärän nimen. 
 Lähteet:
 
 (1) https://rapidapi.com/blog/api-glossary/http-request-methods/ 
-(2) 
+(2) https://blog.hubspot.com/marketing/http-304-not-modified
 
