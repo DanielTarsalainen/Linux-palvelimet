@@ -1,4 +1,8 @@
-*a) Asenna Apache, laita käyttäjien kotisivut (http://example.com/~tero) toimimaan. Testaa esimerkkikotisivulla.*
+## Linux-palvelimet h3 tehtävät.
+*Tekijä: Daniel Tarsalainen*
+
+
+### a) Asenna Apache, laita käyttäjien kotisivut (http://example.com/~tero) toimimaan. Testaa esimerkkikotisivulla.*
 
 *Aloitin palvelimen asennuksen kirjoittamalla sudo apt-get update komennon, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 toimivuuden tekemällä komennon sudo systemctl start apache2. `curl localhost` -komennolla sain komentoriville näkyviin apache2 oletussivun sisällön komentorivityökaluun. Alla kuva tulostuksesta.*
 
@@ -11,7 +15,7 @@
 
 
 
-*b) Surffaa oman palvelimesi weppisivuja. Etsi Apachen lokista esimerkki onnistuneesta (200 ok) sivulatauksesta ja epäonnistuneesta (esim 404 not found) sivulatauksesta. Analysoi rivit.*
+### b) Surffaa oman palvelimesi weppisivuja. Etsi Apachen lokista esimerkki onnistuneesta (200 ok) sivulatauksesta ja epäonnistuneesta (esim 404 not found) sivulatauksesta. Analysoi rivit.
 
 *Käytin lokien hakemiseen komentoa: `sudo cat /var/log/apache2/access.log`*
 
@@ -25,7 +29,7 @@
 > ::1 - - [10/Sep/2021:11:58:45 +0300] "GET /~dan HTTP/1.1" 404 488 "-"           "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
 
-*d) Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.*
+### d) Tee virhe johonkin Apachen asetustiedostoon, etsi ja analysoi tuo rivi. Etsimiseen sopivat esimerkiksi Apachen omat lokit, syslog sekä ‘apache2ctl configtest’.
 
 *Etsin apache2 kansion etc -polussa "/etc/apache2". Kansion sisällä avasin "apache2.conf" -tiedoston komennolla sudo `nano apache2.conf` ja lisäsin rivin, jossa lukee teksti: "katsotaan kaatuuko palvelin". Sudoa jouduin käyttämään sen takia, että ilman sudoa komentorivistä tuli viestiä, että tarvittavia oikeuksia ei ole. Seuraavaksi tallensin tiedoston ja käynnistin palvelimen uudestaan `sudo systemctl restart apache2`. Heti käynnistyksen yhteydessä tuli error-viesti:*
 
@@ -45,7 +49,7 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 *Toinen logi on muuten hyvin samanlainen, mutta Apachen controlleri(4), kertoo, että palvelimen konfiguroinnissa on vääränlainen komento.*
 
 
-*i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.*
+### i) Kuinka monta eri HTTP Status:ta (200, 404, 500…) saat aiheutettua lokeihin? Selitä, miten aiheutit tilanteet ja analysoi yksi rivi kustakin statuksesta.
 
 *Käytin lokeihin `sudo tail -f /var/log/apache2/access.log` -komentoa, jolla sain realiajassa lokit näkyviin.*
 
@@ -65,7 +69,7 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 
 *Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi "Status 403" eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon, koska se ei ole nimetty standardin mukaisella tavalla, eli public_html. Rivin muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
 
-*m) Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.*
+### m) Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.
   
 *En ollut aikaisemmin tehnyt vastaavanlaista operaatiota niin minun täytyi turvautua internetin puoleen. Löysin "askubuntu.com" -sivulta hyvän langan <sup>5</sup>, jossa oli erinomaiset ohjeet oletussivun vaihtamiselle. Ennen kyseisen keskustelulangan löytämistä olin oivaltanut, että Apachen oletussivun voi poistaa menemällä hakemistoon "/var/www/html". Poistin index.html tiedoston `sudo rm index.html`. Tämän jälkeen noudatin nettisivulla <sup>5</sup> näkyviä ohjeita. Etenin "/etc/apache2/sites-available" -hakemistoon, jossa tein konfigurointi tiedostosta kopion `sudo cp 000-default.conf mywebsite.conf` -komennolla. Tämän jälkeen avasin "mywebsite.conf" -tiedoston ja lähdin muuttamaan asetuksia. Ensiksi muutin "DocumentRoot" asetuksen vastaamaan omaa public_html hakemistoani. Sitten lisäsin ohjeiden mukaan "<Direcory> </Directory>" osion, jolla annoimme oikeudet kyseiseen käyttäjähakemistoon. Sitten lisäsin vielä ServerName ja ServerAlias asetukset vastaamaan paikallista osoitetta "localhost". Lopuksi otin käyttöön tekemäni konfiguroinnit komennolla `sudo a2ensite mywebsite.conf` ja käynnistin vielä palvelimen uudestaan komennolla `sudo systemctl restart apache2`. Alla kuvat konfigurointi tiedostosta ja selaimesta.
  
