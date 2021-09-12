@@ -108,7 +108,7 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 \
 &nbsp;
 
-### Yhteenveto
+### Loppuajatuksia
 
 *Tehtävät olivat varsin mielenkiintoisia, kun pääsi kunnolla vauhtiin. Koin erityisen kiinnostavaksi m) kohdan, koska ratkaisu ei ollut täysin selvillä ja sitä varten joutui tekemään hieman tutkimustyötä. Tehtävien tekoon kului kaikenkaikkiaan aikaa noin kahdeksan tuntia ja ripttelin tehtävien tekemiset perjantaille, lauantaille ja sunnuntaille*
 
