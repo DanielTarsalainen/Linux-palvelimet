@@ -65,6 +65,13 @@ See "systemctl status apache2.service" and "journalctl -xe" for details.
 
 *Kyseisen errorin sain aikaan muuttamalla public_html kansion nimen. Tästä toiminnasta seurasi "Status 403" eli forbidden, tarkoittaen, että minulla ei ole oikeutta kyseiseen kansioon, koska se ei ole nimetty standardin mukaisella tavalla, eli public_html. Rivin muut tiedot vastaavat aikaisempia päivämäärää ja aikaa lukuunottamatta.*
 
+*m) Vaihda Apachen oletussivu. Eli laita palvelimen etusivulla (ilman tildeä) näkyvä sivu niin, että alkuperäinen on jonkun käyttäjän kotihakemistossa ja voit muokata sitä ilman pääkäyttäjän oikeuksia.*
+  
+*En ollut aikaisemmin tehnyt vastaavanlaista operaatiota niin minun täytyi turvautua internetin puoleen. Löysin "askubuntu.com" -sivulta hyvän langan <sup>5</sup>, jossa oli erinomaiset ohjeet oletussivun vaihtamiselle. Ennen kyseisen keskustelulangan löytämistä olin oivaltanut, että Apachen oletussivun voi poistaa menemällä hakemistoon "/var/www/html". Poistin index.html tiedoston `sudo rm index.html`. Tämän jälkeen noudatin nettisivulla <sup>5</sup> näkyviä ohjeita. Etenin "/etc/apache2/sites-available" -hakemistoon, jossa tein konfigurointi tiedostosta kopion `sudo cp 000-default.conf mywebsite.conf` -komennolla. Tämän jälkeen avasin "mywebsite.conf" -tiedoston ja lähdin muuttamaan asetuksia. Ensiksi muutin "DocumentRoot" asetuksen vastaamaan omaa public_html hakemistoani. Sitten lisäsin ohjeiden mukaan "<Direcory> </Directory>" osion, jolla annoimme oikeudet kyseiseen käyttäjähakemistoon. Sitten lisäsin vielä ServerName ja ServerAlias asetukset vastaamaan paikallista osoitetta "localhost". Lopuksi otin käyttöön tekemäni konfiguroinnit komennolla `sudo a2ensite mywebsite.conf` ja käynnistin vielä palvelimen uudestaan komennolla `sudo systemctl restart apache2`. Alla kuvat konfigurointi tiedostosta ja selaimesta.
+ 
+![image](https://user-images.githubusercontent.com/77921212/132984012-006f35b0-8481-4ae0-8990-e3680d7adf08.png)
+
+![image](https://user-images.githubusercontent.com/77921212/132984314-9c5134f6-39e7-4f38-9e9d-aa8fb40b53b6.png)
 
 
 
@@ -74,4 +81,5 @@ Lähteet:
 (2) https://blog.hubspot.com/marketing/http-304-not-modified
 (3) https://www.linode.com/docs/guides/what-is-systemd/
 (4) https://stackoverflow.com/questions/904621/what-does-apachectl-stand-for-why-isnt-it-just-apache/904626
+(5) https://askubuntu.com/questions/857609/apache2-now-pointing-to-new-default-page 
 
