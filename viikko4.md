@@ -13,7 +13,8 @@
 
 
 
-*b) 
 
+
+*b) `ssh root@178.128.245.233` -komentoa käytin ssh:n rei'ityykseen. Tämän jälkeen tuli varmistusviesti (yes tai no). Sitten pyydettiin palvelimen salasanaa. Sen jälkeen kun syötin salasanan oikein, päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja päivitin saatavilla olevat paketit. Tämän jälkeen annoin `sudo apt-get upgrade` -komennon, jolla päivitin kaikki paketit. `sudo apt-get install ufw`-komennolla asensin tulimuuri. `sudo ufw allow 22/tcp` -komennolla tein ja sitten aktivoin reiän komennolla `sudo ufw enable`. Tämän jälkeen tein uuden käyttäjän 'leinad', jolle annoin admin oikeudet
 
 
