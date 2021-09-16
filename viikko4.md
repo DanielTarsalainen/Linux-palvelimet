@@ -2,7 +2,7 @@
 
 #### a) Vuokraa oma julkinen palvelin Internetiin. Vinkkejä: Perustele tehdyt valinnat. Voit saada myös ilmaiseksi Github Education -paketilla. Jos sinulla on aiempi palvelin, tee uusi alusta lähtien ja raportoi samalla. Käytä aina hyviä salasanoja.*
 
-*Lähdin vuokramaan palvelinta DigitalOceanista, koska sitä suositeltiin oppitunnilla. Sain Github Educatio npaketilla 
+*Lähdin vuokramaan palvelinta DigitalOceanista, koska sitä suositeltiin oppitunnilla. Sain Github Education paketilla 200 dollaria käytettäväksi kahden kuukauden ajaksi. 
 
 
 #### b) Suojaa palvelin tulimuurilla. Muista ensin reikä ssh-palvelimelle.*
