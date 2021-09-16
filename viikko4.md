@@ -2,14 +2,19 @@
 
 *a) Vuokraa oma julkinen palvelin Internetiin. Vinkkejä: Perustele tehdyt valinnat. Voit saada myös ilmaiseksi Github Education -paketilla. Jos sinulla on aiempi palvelin, tee uusi alusta lähtien ja raportoi samalla. Käytä aina hyviä salasanoja.*
 
-*ax) Vaihtoehtotehtävä, korvaa kohdan a. Suosittelen mieluummin tekemään a-kohdan, se on paljon hyödyllisempi. Kokeile virtuaalikoneiden tekoa vagrant:lla omalla paikallisella koneellasi. Sovella muut kohdat (b, c...) siten, että ne toimivat paikallisen koneen kanssa: esim testaa weppsivut paikallisesti curlilla, simuloi hyökkäys syöttämällä väärä salasana omaan ssh-palvelimeesi jne.*
-
 *b) Suojaa palvelin tulimuurilla. Muista ensin reikä ssh-palvelimelle.*
 
 *c) Laita koneellesi Apache-weppipalvelin. Korvaa testisivu. Laita käyttäjän kotisivut toimimaan. Kokeile eri koneelta, esim. kännykällä, että sivut toimivat. Vinkki: tee kotisivut normaalina käyttäjänä public_html/ alle, opettelemme "name based virtual hosting" myöhemmin.*
 
 *d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.*
 
+c) Tämän jälkeen tein sudo apt-get update komennon, jolla päivitin saatavilla olevat paketit. Tämän jälkeen asensin apache2 -palvelimen: sudo apt-get install apache2. Vielä tarvitsi tehdä reikä tulimuuriin, jotta sivulle pääsy olisi mahdollista. Lopuksi käynnistin apache2 palvelimen sudo systemctl start apache2 -komennolla. Apachen oletussivu tuli onnistuneesti näkyviin. Alla kuva kyseisestä tapahtumasta.
+
+Tämän jälkeen lähdin muuttamaan Apache2 oletussivun omaksi nettisivukseni. Tein kopion etc/apache2/sites-available kansion 000-default.conf tiedostosta --> leinadsite.conf. leinadsite.conf sivulla muutin asetuksia: 
+
+Tämän jälkeen otin uudet configuraatiot käyttöön: Käynnistin apache2 palvelimen uudestaan sudo systemctl start apache2 -komennolla, jonka jälkeen päivitin palvelimen sudo systemctl reload apache2 -komennolla. 
+
+Tämän jälkeen tein omaan kotihakemistoon uuden kansion nimeltä public_html ja loin sinne tiedoston nimellä index.html. Sinne kirjotin tekstin "Palvelin toimii juhuu!" 
 
 
 
