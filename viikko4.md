@@ -76,6 +76,13 @@
 
 ![image](https://user-images.githubusercontent.com/77921212/133635440-3f8cb040-554c-4e33-83ad-f442a2eb9d50.png)
 
+Lopuksi halusin vielä NameCheapista ilmaisen domainin, jonka GitHub Student Developer pack mahdollisti. 
+
+![kuva](https://user-images.githubusercontent.com/77921212/133639860-004664cc-fb97-4079-9f76-2ad26d5d985c.png)
+
+![kuva](https://user-images.githubusercontent.com/77921212/133639968-45a7b4d2-4c76-487e-bc57-e3520daae585.png)
+
+
 \
 &nbsp;
 
