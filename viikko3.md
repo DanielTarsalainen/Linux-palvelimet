@@ -18,7 +18,7 @@
 
 ### a) Asenna Apache, laita käyttäjien kotisivut (http://example.com/~tero) toimimaan. Testaa esimerkkikotisivulla.
 
-*Aloitin palvelimen asennuksen kirjoittamalla `sudo apt-get update komennon`, jolla   päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 -palvelimen toimivuuden tekemällä komennon `sudo systemctl start apache2`. `curl localhost` -komennolla sain komentoriville näkyviin apache2 -palvelimen oletussivun sisällön komentoriville. Alla kuva tulostuksesta.*
+*Aloitin palvelimen asennuksen kirjoittamalla `sudo apt-get update` -komennon, jolla päivitin saatavilla olevat paketit. Seuraavaksi tein `sudo apt-get install apache2` -komennon, jolla sain apache palvelimen asennettua virtuaalikoneelle. Sitten testasin apache2 -palvelimen toimivuuden tekemällä komennon `sudo systemctl start apache2`. `curl localhost` -komennolla sain komentoriville näkyviin apache2 -palvelimen oletussivun sisällön komentoriville. Alla kuva tulostuksesta.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941775-c5cb3824-7653-4140-af6e-af5d40370085.png)
 
