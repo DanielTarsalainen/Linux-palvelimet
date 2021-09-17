@@ -75,6 +75,8 @@
 *Lopuksi tein omaan kotihakemistoon uuden kansion nimeltä "public_html" ja loin sinne tiedoston nimellä "index.html". Tiedoston sisään kirjotin tekstin "Palvelin toimii juhuu!"*
 
 
+
+
 \
 &nbsp;
 
