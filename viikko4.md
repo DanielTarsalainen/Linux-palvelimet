@@ -74,6 +74,7 @@
 
 *Lopuksi tein omaan kotihakemistoon uuden kansion nimeltä "public_html" ja loin sinne tiedoston nimellä "index.html". Tiedoston sisään kirjotin tekstin "Palvelin toimii juhuu!"*
 
+![image](https://user-images.githubusercontent.com/77921212/133822839-6bb027d8-2342-4177-aedb-76a73e8059ce.png)
 
 
 
