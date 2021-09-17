@@ -76,11 +76,18 @@
 
 ![image](https://user-images.githubusercontent.com/77921212/133822839-6bb027d8-2342-4177-aedb-76a73e8059ce.png)
 
+*Onnistuin pääsemään myös puhelimella palvelimelle*
+
+![kuva](https://user-images.githubusercontent.com/77921212/133823774-aaba2233-f917-448d-89ed-e776bb773ee8.png)
+
+
 \
 &nbsp;
 
 
 #### *d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.*
+
+
 
 
 
