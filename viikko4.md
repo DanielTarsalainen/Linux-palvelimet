@@ -62,7 +62,7 @@
 
 #### c) Laita koneellesi Apache-weppipalvelin. Korvaa testisivu. Laita käyttäjän kotisivut toimimaan. Kokeile eri koneelta, esim. kännykällä, että sivut toimivat. Vinkki: tee kotisivut normaalina käyttäjänä public_html/ alle, opettelemme "name based virtual hosting" myöhemmin.
 
-*Seuraavana agendassa oli Apache palvelimen asennus, jotta juuri luodun yksityisen DigitalOcean -palvelimen käyttö olisi mahdollista. Ennen asennusta tein `sudo apt-get update komennon`, jolla päivitin saatavilla olevat paketit. Tämän jälkeen asensin apache2 -palvelimen `sudo apt-get install apache2` -komennolla. Vielä tarvitsi tehdä reikä tulimuuriin, jotta sivulle pääsy olisi mahdollista. Tämä operaatio tehtiin komennolla `sudo ufw allow 80/tcp`.  Lopuksi käynnistin apache2 -palvelimen `sudo systemctl start apache2 -komennolla` ja päivitin sen `sudo systemctl reload apache2`. Apachen oletussivu tuli onnistuneesti näkyviin. Alla kuva kyseisestä tapahtumasta.*
+*Seuraavana agendassa oli Apache palvelimen asennus, jotta juuri luodun yksityisen DigitalOcean -palvelimen käyttö olisi mahdollista. Ennen asennusta tein `sudo apt-get update komennon`, jolla päivitin saatavilla olevat paketit. Tämän jälkeen asensin apache2 -palvelimen `sudo apt-get install apache2` -komennolla. Vielä tarvitsi tehdä reikä tulimuuriin, jotta sivulle pääsy olisi mahdollista. Tämä operaatio tehtiin komennolla `sudo ufw allow 80/tcp`.  Lopuksi käynnistin apache2 -palvelimen `sudo systemctl start apache2` -komennolla ja latasin sen uuudelleen `sudo systemctl reload apache2`. Apachen oletussivu tuli onnistuneesti näkyviin. Alla kuva kyseisestä tapahtumasta.*
 
 ![image](https://user-images.githubusercontent.com/77921212/133633620-31cd586b-1470-4876-b488-0be12b4c19a8.png)
 
