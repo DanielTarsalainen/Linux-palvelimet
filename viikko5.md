@@ -52,16 +52,19 @@ Lopuksi hain sekä localhost nimellä, että danieltars.com nimellä. Kummallaki
 *Digital oceanin ohjesivulla tosin luki, että muutoksissa voi mennä vain 30 minuttia*
 *Odotellessani huomasin, että viimeviikolta oli jäänyt Apache2 oletussivu var/www/html kansioon. Korjasin tämän tekemällä julkislle palvelimelle `echo "Default"|sudo tee /var/www/html/index.html`komennon.
 
-*Nyt kun aikaa oli kulunut reilu puoli tuntia, niin menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. Tämän jälkeen käynnistin Apache2 palvelimen uudestaan komennola `sudo systemctl restart apache2` 
+*Nyt kun aikaa oli kulunut reilu puoli tuntia, niin menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. ServerNamessa ja ServerAliaksessa oli aikaisemmin nettisivun ip-osoite, mutta nyt kun domain on yhdistetty digital oceanin julkiseen palvelimeen, niin nyt niihin kohtaan voi laitaa oman domainin nimen. ServerName kohtaan www.danieltarsalainen.xyz ja ServerAlias kohtaan danieltarsalainen.xyz
+
+![kuva](https://user-images.githubusercontent.com/77921212/134511373-0155b70a-f1fd-4eef-8b04-c5f984139152.png)
+
+
+
+Tämän jälkeen käynnistin Apache2 palvelimen uudestaan komennola `sudo systemctl restart apache2` 
 
 *Tämän jälkeen halusin testata, tulostuuko "danieltarsalainen.xyz" -sivulta mitään curl komennolla. Ensiksi päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja sitten asensin curlin `sudo apt-get install curl` -komennolla. Tämän jälkeen tulostin oman nettisivuni sisällön komennolla `curl danieltarsalainen.xyz`.
 Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa, joka myös näytti onnistuneesti sivun sisällön.
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134489928-8e75605f-aa65-4963-8c54-606426703437.png)
 ![kuva](https://user-images.githubusercontent.com/77921212/134489963-70ae52f8-fc10-43e1-98dd-50737cfd0749.png)
-
-
-
 
 
 ### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
@@ -115,6 +118,77 @@ Tämän jälkeen loin uuden name based virtual hostin komennolla `sudoedit /etc/
 *Tämän jälkeen kokeilin udelleen curl localhost -komentoa, joka näytti tällä kertaa 404, eli not found.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134496067-21826eda-d85f-4fde-b93e-f64d4c780083.png)
+
+*Tämän jälkeen tein vielä `sudo tail -l /var/log/apache2/error.log` -komennon
+
+![kuva](https://user-images.githubusercontent.com/77921212/134503711-e9a24fce-2da3-4315-b4b7-86371dad5c65.png)
+
+*Viestistä voi tulkita, että kyseistä tiedostoa ei ole olemassa.*
+
+*Seuraavaksi lähdin luomaan uutta tiedostoa nanolla, mutta huomasin, että tiedostoon on vain lukuoikeudet. Päättelin tästä, että luotu ryhmä "danewsgi" ei ole vielä aktivoitunut, joten kirjauduin ulos käyttäjältä ja kirjauduin uudelleen sisään.*
+
+*Tämän operaation jälkeen tiedoston avaaminen täysillä oikeuksilla onnistui.*
+
+*Tiedoston sisään kirjoitin seuraavanlaisesti:
+
+![kuva](https://user-images.githubusercontent.com/77921212/134506886-564d1b5b-f7b3-4261-8182-6feed6ad3274.png)
+
+*lisäsin oman wsgi-polun Pythonin poluksi ja importoin kohta luodun sovelluksen. Teron ohjeiden (lähde 2) mukaan vielä assertionin, jolla saa tarvittaessa virhe koodin jos Python 3 koodi tulkitaan Python 2 koodina.*
+
+*Tämän jälkeen tallensin ja kokeilin jälleen uudelleen localhostin tulostamista komentoriville.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134507696-5a79200e-df0c-4d52-811d-eea58f8dc6be.png)
+
+*Tästä seurasi Internal Server Error. Se tarkoittaa sitä, että palvelin kyllä tunnistaa kansion, mutta sen sisällä ei ole vielä mitään mitä näyttää*
+
+*Tämän jälkeen tein vielä lopuksi viime tehtävässä nähdyn Hello Flask -sovelluksen, mutta tällä kertaa palvelimen pyörittämänä. Tällä kertaa jouduin tosin poistamaan app.run rivin, koska Apachen kanssa se on mahdotonta. Sovelluksen loin `nano /home/danewsgi/public_wsgi/hello.py` -komennolla.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134508793-4fd96235-5f32-4bb4-b57c-210e5c670b6c.png)
+
+*Tämän jälkeen kokeilin tulostaa sovelluksen sisällön `curl localhost` -komennolla.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134509136-218971a6-cd7c-4e10-bc6c-a3356666c576.png)
+
+*Äsköisen toimenpiteen jälkeen avasin localhostin vielä palvelimessa.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134509375-962a1d1b-6542-4932-88e8-346286eabec8.png)
+
+*Tästä voidaan vetää johtopäätös, että Flask toimii halutulla tavalla ja on nyt valmis vaikka rahan tekemiseen.*
+
+*Lopuksi muutin vielä luomani hello-sovelluksen sisältöä seuraavasti.
+
+![kuva](https://user-images.githubusercontent.com/77921212/134514265-8d488bef-31fb-44cb-8b36-6736d1c8088d.png)
+
+*Lopuksi tein vielä `touch dane.wsgi` -komennon, jolla ajoin python tiedoston käynnistämättä apachea uudestaan ja kokeilin päivittyikö sivu halutulla tavalla. Vastaus on kyllä.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134516223-1d0e85c2-8f46-4c26-a6f3-d04952988cb0.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
