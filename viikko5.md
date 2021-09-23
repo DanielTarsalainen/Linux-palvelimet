@@ -57,6 +57,12 @@ Lopuksi hain sekä localhost nimellä, että danieltars.com nimellä. Kummallaki
 *Tämän jälkeen halusin testata, tulostuuko "danieltarsalainen.xyz" -sivulta mitään curl komennolla. Ensiksi päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja sitten asensin curlin `sudo apt-get install curl` -komennolla. Tämän jälkeen tulostin oman nettisivuni sisällön komennolla `curl danieltarsalainen.xyz`.
 Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa, joka myös näytti onnistuneesti sivun sisällön.
 
+![kuva](https://user-images.githubusercontent.com/77921212/134489928-8e75605f-aa65-4963-8c54-606426703437.png)
+![kuva](https://user-images.githubusercontent.com/77921212/134489963-70ae52f8-fc10-43e1-98dd-50737cfd0749.png)
+
+
+
+
 
 ### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
 
@@ -64,9 +70,85 @@ Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa, joka myös
 
 ### d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
 
-*Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser joonatan`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän danwsgi ryhmään.*
+*Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser danewsgi`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän danwsgi ryhmään.*
+![kuva](https://user-images.githubusercontent.com/77921212/134489822-8c22dbb9-c9ba-4a6f-a214-a966d133e0fe.png)
 
 Tämän jälkeen loin uuden name based virtual hostin komennolla `sudoedit /etc/apache2/sites-available/danewsgi.conf`
+![kuva](https://user-images.githubusercontent.com/77921212/134489706-161e7e54-289d-44ad-983c-f58fe96898d7.png)
+
+*Tämän jälkeen otin konfiguraatiot käyttöön komennolla `sudo a2ensite danewsgi.conf` ja poistin vanhan sivun konfiguraatiot komennolla `sudo a2dissite 000-default.conf`.  
+![kuva](https://user-images.githubusercontent.com/77921212/134490451-f73f18db-5b95-4af8-93a9-e38f7771123c.png)
+![kuva](https://user-images.githubusercontent.com/77921212/134490916-98ce675e-0c40-4e71-ad38-54541a90e869.png)
+
+*Tämän jälkeen kokeilin käynnistää apachen uudelleen, jonka jälkeen tuli kyseinen kyseinen error: `Job for apache2.service failed`. Sitten ajoin vielä kertaalleen config testin komennolla apache2ctl configtest. Siitä seurasi alla oleva virhe. 
+![kuva](https://user-images.githubusercontent.com/77921212/134491667-0fa6cdc8-7a2c-4e79-9f9a-ac115bf35f65.png)
+
+
+*Tämän korjauksee käytin wsgi-moduulin asennusta. Päivitin ensin saatavilla olevat paketit `sudo apt-get update` -komennolla, jonka jälkeen asensin wsgi-moduulin komennolla `sudo apt-get -y install libapache2-mod-wsgi-py3`*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134492106-e2faf4b9-2d4d-4a11-bfa8-94a77bd7d543.png)
+
+*Apachen restarttaus meni läpi ja config-testissä tuli seuraavanlainen tulos: 
+
+![kuva](https://user-images.githubusercontent.com/77921212/134492563-1f7fc5fa-2b14-4c09-b16a-8e28cbbcf734.png)
+
+
+
+*Localhostin printtauksessa curlin avaull tuli seuraavanlainen tulos: *
+
+![kuva](https://user-images.githubusercontent.com/77921212/134492942-9939c12e-26f9-406b-b3e6-f0bdc5097192.png)
+*403 forbidden viittaa siihe, että minun peruskäyttäjällä ei ole oikeuksia kyseiseen sivuun*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134493366-e7736d20-d465-4d4b-b6ba-b2427ae6b8ea.png)
+
+*Viimeiseltä riviltä voi lukea, että client denied server configuration, joka tarkoittaa, että kyseistä tiedostoa*
+
+*`groups danskubansku` -komennolla näin kaikki ryhmät, johon oma käyttäjäni kuuluu, ja löysin danewsgi -ryhmän listasta.*
+*Tällä sain varmuuden siitä, että minulla on tarvittavat oikeudet kyseiseen ryhmään*
+
+*Sitten lähdin tekeään uutta hakemistoa komennolla `sudo mkdir /home/danewsgi/public_wsgi`. Tämän jälkeen muutin oikeuksia vielä niin, että sudoa ei tarvita. Tähän käytin komentoa `sudo chown danewsgi:danewsgi /home/danewsgi/public_wsgi`. 
+
+*Tämän jälkeen muutin oikeuksia vielä siten, että ryhmöllä on luku-, kirjotus- ja ajo-oikeudet. Tähän käytin komentoa sudo chmod g=rwxs /home/danewsgi/public_wsgi*
+*Sitten vielä tarkistin oikeudet ls -ld /home/danewsgi/public_wsgi -komennolla.*
+![kuva](https://user-images.githubusercontent.com/77921212/134495722-231627e5-84a8-45b2-9904-9e4d9bb91718.png)
+
+*Tämän jälkeen kokeilin udelleen curl localhost -komentoa, joka näytti tällä kertaa 404, eli not found.*
+
+![kuva](https://user-images.githubusercontent.com/77921212/134496067-21826eda-d85f-4fde-b93e-f64d4c780083.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
