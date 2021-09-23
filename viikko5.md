@@ -36,19 +36,24 @@ Tämän jälkeen otin konfiguroinnit käyttöön `sudo a2ensite danieltars.com.c
 Lopuksi hain sekä localhost nimellä, että danieltars.com nimellä. Kummallakin tavalla sain auki halutun sivun. "Sinä" -sana muutti sen takia muotoa, koska index.html tiedostossa ei ole minkäänlaista dokumentin siällön määrittävää dokumenttityyppiä. 
 
 
-
-
-
-
-
-
-
-
-
-
 ### b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii.
 
+*Vuokrasin namecheapista xyz-loppuisen domainin*
+![kuva](https://user-images.githubusercontent.com/77921212/134465546-c5e388dc-57b5-473a-a3a1-47956ad09ed7.png).
+*Tämän jälkeen tein "Add a domain kohdasta" -kohdasta uuden domainin digital oceanin sivulla. Nimeksi annoin vuokratun domainin nimen, eli danieltarsalainen.xyz* 
+![kuva](https://user-images.githubusercontent.com/77921212/134468600-83188c40-f137-4cb4-964c-f2931dd0205a.png)
+*Tämän jälkeen menin tarkastelemaan digital oceanin domain-näkymää, joka näytti seuraavanalaiselta.*
+![kuva](https://user-images.githubusercontent.com/77921212/134468854-760d43eb-d827-4471-acc7-0d21314d017a.png)
+*Sitten noudatin domain -sivulla näkyviä ohjeita nimipalvelinten muuttamiseen.*
+*https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars -ohjeessa neuvottiin vaihtamaan digital oceanin nameservers kohta seuraavanlaiseksi*
+![kuva](https://user-images.githubusercontent.com/77921212/134466271-eb778e0f-da39-4ad3-ab0d-d4b251e52d37.png)
+*Muutosten tultua voimaan tuli seuraavanlainen viesti.*
+![kuva](https://user-images.githubusercontent.com/77921212/134466373-4f7726da-0b9e-4a4e-8880-23418d31e0c9.png)
+*Digital oceanin ohjesivulla tosin luki, että muutoksissa voi mennä vain 30 minuttia*
+
 ### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
+
+
 
 ### d) d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
 
