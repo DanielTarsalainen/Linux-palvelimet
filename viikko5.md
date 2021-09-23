@@ -50,12 +50,23 @@ Lopuksi hain sekä localhost nimellä, että danieltars.com nimellä. Kummallaki
 *Muutosten tultua voimaan tuli seuraavanlainen viesti.*
 ![kuva](https://user-images.githubusercontent.com/77921212/134466373-4f7726da-0b9e-4a4e-8880-23418d31e0c9.png)
 *Digital oceanin ohjesivulla tosin luki, että muutoksissa voi mennä vain 30 minuttia*
+*Odotellessani huomasin, että viimeviikolta oli jäänyt Apache2 oletussivu var/www/html kansioon. Korjasin tämän tekemällä julkislle palvelimelle `echo "Default"|sudo tee /var/www/html/index.html`komennon.
+
+*Nyt kun aikaa oli kulunut reilu puoli tuntia, niin menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. Tämän jälkeen käynnistin Apache2 palvelimen uudestaan komennola `sudo systemctl restart apache2` 
+
+*Tämän jälkeen halusin testata, tulostuuko "danieltarsalainen.xyz" -sivulta mitään curl komennolla. Ensiksi päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja sitten asensin curlin `sudo apt-get install curl` -komennolla. Tämän jälkeen tulostin oman nettisivuni sisällön komennolla `curl danieltarsalainen.xyz`.
+Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa, joka myös näytti onnistuneesti sivun sisällön.
+
 
 ### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
 
 
 
-### d) d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
+### d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
+
+*Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser joonatan`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän danwsgi ryhmään.*
+
+Tämän jälkeen loin uuden name based virtual hostin komennolla `sudoedit /etc/apache2/sites-available/danewsgi.conf`
 
 
 
