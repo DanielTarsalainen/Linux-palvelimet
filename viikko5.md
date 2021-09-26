@@ -7,8 +7,6 @@
 ## Tehtävänanto
 
 
-*Tee kukin tehtävä alusta lähtien ja kirjaa samalla, vaikka olisit kokeillut tunnilla. Jos pidät propellihattua, katso kohta x.*
-
 - [x]  a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
 
 - [x] b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii.
