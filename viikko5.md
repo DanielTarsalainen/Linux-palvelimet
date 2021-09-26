@@ -9,13 +9,13 @@
 
 *Tee kukin tehtävä alusta lähtien ja kirjaa samalla, vaikka olisit kokeillut tunnilla. Jos pidät propellihattua, katso kohta x.*
 
-- [ ]  a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
+- [x]  a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
 
-- [ ] b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii.
+- [x] b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii.
 
-- [ ] c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
+- [x] c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
 
-- [ ] d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
+- [x] d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
 
 
 \
@@ -24,12 +24,12 @@
 
 #### a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
 
-*Päivitin paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa $ sudoedit /etc/apache2/sites-available/danieltars.com.conf (kuva1).*
+*Olin harjotellut virtual hostin tekemistä jo pari viikkoa ennen tätä hetkeä, mutta virkistin muistiani Teron nettisivun ohjeella<sup>1</sup>. Aloitin tehtävien tekemisen keskiviikkona 22.9 noin kello kymmeneltä aamulla. Lähdin liikkeelle tehtvissä päivittämällä paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa  `sudoedit /etc/apache2/sites-available/danieltars.com.conf` (kuva1).*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134549159-4509e1b0-6849-4b84-a70d-dc85451e86cc.png)
 
 
-*Tämän jälkeen otin konfiguroinnit käyttöön `sudo a2ensite danieltars.com.conf` -komennolla ja latasin apache2 palvelimen uudestaan `systemctl reload apache2` -komennolla. `mkdir -p /home/danskubansku/publicsites/danieltars.com` -komennolla tein uuden hakemiston publicsites hakemistoon. `echo hei sinä! > /home/danskubansku/publicsites/danieltars.com/index.html` -komennolla tein uuden index.html -tiedoston ja kirjotin siihen tekstin "hei sinä". *
+*Tämän jälkeen otin konfiguroinnit käyttöön `sudo a2ensite danieltars.com.conf` -komennolla ja latasin apache2 palvelimen uudestaan `systemctl reload apache2` -komennolla. `mkdir -p /home/danskubansku/publicsites/danieltars.com` -komennolla tein uuden hakemiston publicsites hakemistoon. `echo hei sinä! > /home/danskubansku/publicsites/danieltars.com/index.html` -komennolla tein uuden index.html -tiedoston ja kirjotin siihen tekstin "hei sinä".*
 
 *Lopuksi vielä käynnistin Apache palvelimen uudestaan `sudo systemctl restart apache2` -komennolla.*
 
@@ -39,7 +39,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134549292-9d4f850b-32b6-44f2-8b56-fe930e4bef45.png)
 
-*Lopuksi hain sekä localhost nimellä, että danieltars.com nimellä. Kummallakin tavalla sain auki halutun sivun. "Sinä" -sana muuttui sen takia muotoa, koska index.html tiedostossa ei ole minkäänlaista dokumentin siällön määrittävää dokumenttityyppiä.*
+*Lopuksi hain sekä "localhost" -nimellä, että "danieltars.com" -nimellä. Kummallakin tavalla sain auki halutun sivun. "Sinä" -sana muuttui sen takia muotoa, koska index.html tiedostossa ei ole minkäänlaista dokumentin siällön määrittävää dokumenttityyppiä.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134549569-92335fc7-8efc-4832-8b9c-1ed691731e2b.png)
 
@@ -64,7 +64,7 @@
 
 *Sitten noudatin domain -sivulla näkyviä ohjeita nimipalvelinten muuttamiseen.*
 
-*https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars -ohjeessa neuvottiin vaihtamaan digital oceanin nameservers kohta seuraavanlaiseksi*
+*Namecheapin -ohjeessa<sup>2</sup> neuvottiin vaihtamaan digital oceanin nameservers kohta seuraavanlaiseksi*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134466271-eb778e0f-da39-4ad3-ab0d-d4b251e52d37.png)
 
@@ -74,18 +74,19 @@
 
 *Digital oceanin ohjesivulla tosin luki, että muutoksissa voi mennä vain 30 minuttia. Odotellessani huomasin, että viime viikolta oli jäänyt Apache2 oletussivu var/www/html kansioon. Korjasin tämän tekemällä julkislle palvelimelle `echo "Default"|sudo tee /var/www/html/index.html`komennon. Näin oletussivulle ylikirjottui teksti "Default".*
 
-*Nyt kun aikaa oli kulunut reilu puoli tuntia, niin menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. ServerNamessa ja ServerAliaksessa oli aikaisemmin nettisivun ip-osoite, mutta nyt kun domain saatiin yhdistettyä digital oceanin julkiseen palvelimeen, niin nyt niihin kohtaiin voitiin laitaa oman domainin nimen. ServerName -kohtaan "www.danieltarsalainen.xyz" ja ServerAlias -kohtaan "danieltarsalainen.xyz"*
+*Nyt kun aikaa oli kulunut reilu puoli tuntia, menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. ServerNamessa ja ServerAliaksessa oli aikaisemmin nettisivun ip-osoite, mutta nyt kun domain saatiin yhdistettyä digital oceanin julkiseen palvelimeen, niin nyt niihin kohtaiin voitiin laitaa oman domainin nimen. ServerName -kohtaan "www.danieltarsalainen.xyz" ja ServerAlias -kohtaan "danieltarsalainen.xyz"*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134511373-0155b70a-f1fd-4eef-8b04-c5f984139152.png)
 
-*Tämän jälkeen käynnistin Apache2 palvelimen uudestaan komennola `sudo systemctl restart apache2`*
+*Tämän jälkeen käynnistin otin Apache2 palvelimen uudestaan komennola `sudo systemctl restart apache2`*
 
-*Tämän jälkeen halusin testata, tulostuuko "danieltarsalainen.xyz" -sivulta mitään curl komennolla. Ensiksi päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja sitten asensin curlin `sudo apt-get install curl` -komennolla. Tämän jälkeen tulostin oman nettisivuni sisällön komennolla `curl danieltarsalainen.xyz`. Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa, joka myös näytti onnistuneesti sivun sisällön.*
+*Tämän jälkeen halusin testata, tulostuuko "danieltarsalainen.xyz" -sivulta mitään curl komennolla. Ensiksi päivitin saatavilla olevat paketit `sudo apt-get update` -komennolla ja sitten asensin curlin `sudo apt-get install curl` -komennolla. Tämän jälkeen tulostin oman nettisivuni sisällön komennolla `curl danieltarsalainen.xyz`. Tulostus oli onnistunut. Tämän jälkeen kokeilin vielä selaimessa (tietokoneella sekä puhelimella), joka myös näytti onnistuneesti sivun sisällön.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134489928-8e75605f-aa65-4963-8c54-606426703437.png)
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134489963-70ae52f8-fc10-43e1-98dd-50737cfd0749.png)
 
+![kuva](https://user-images.githubusercontent.com/77921212/134819682-310d14e8-0ddc-47af-8528-69bd1be9e1bc.png)
 
 \
 &nbsp;
@@ -93,13 +94,13 @@
 
 #### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
 
-*Lähdin tekmään tehtävää Teron (https://terokarvinen.com/2020/hello-flask-python-web-app/) kotisivun ohjeen mukaan. Ensiksi päivitin saatavilla olevat paketit `sudo apt get update` -komennolla. Sitten asensin flaskin virtuaalikoneelle komennolla `sudo apt-get -y install python3-flask`.*
+*Lähdin tekmään tehtävää Tero Karvisen kotisivun ohjeen<sup>3</sup> mukaan. Ensiksi päivitin saatavilla olevat paketit `sudo apt get update` -komennolla. Sitten asensin flaskin virtuaalikoneelle komennolla `sudo apt-get -y install python3-flask`.*
 
 *Lähdin tekemään tehtävää luomalla kotihakemistoon uuden kansion nimeltä flask komennolla `mkdir flask`. Kansion sisälle loin uuden tiedoston nimeltä hello.py komennolla `nano hello.py`*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134548329-8a8da363-b45a-4572-a3ba-98cb3d508ca7.png)
 
-*Python-tiedoon kirjoitin "hello" -niminen funkio, joka palauttaa viestin "Learn flask at danieltarsalainen.xyz!". `python3 hello.py` -komennon jälkeen sain tulostuksen näkymään lokaalisti portti 5000:ssa.*
+*Python-tiedostoon kirjoitin "hello" -nimisen funkion, jonka pitäisi palauttaa "Learn flask at danieltarsalainen.xyz!" viestin. `python3 hello.py` -komennon jälkeen sain tulostuksen näkymään lokaalisti portti 5000:ssa.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134548890-1214bcc6-bf59-4b03-9594-cd8108235144.png)
 
@@ -110,7 +111,7 @@
 
 #### d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
 
-*Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser danewsgi`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän danwsgi ryhmään.*
+*Hyödynsin tehtävän teossa Tero Karvisen sivulla näkyvää Deploy Python Flask to Production -ohjetta<sup>4</sup>. Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser danewsgi`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän "danwsgi" ryhmään.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134489822-8c22dbb9-c9ba-4a6f-a214-a966d133e0fe.png)
 
@@ -124,7 +125,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134490916-98ce675e-0c40-4e71-ad38-54541a90e869.png)
 
-*Tämän jälkeen kokeilin käynnistää apachen uudelleen, jonka jälkeen tuli kyseinen kyseinen error: `Job for apache2.service failed`. Sitten ajoin vielä kertaalleen config testin komennolla `apache2ctl configtest`. Siitä seurasi alla oleva virhe. 
+*Tämän jälkeen kokeilin käynnistää apachen uudelleen, jonka jälkeen tuli kyseinen kyseinen error: `Job for apache2.service failed`. Sitten ajoin ohjeen mukaan config testin komennolla `apache2ctl configtest`. Siitä seurasi alla oleva virhe.*
 ![kuva](https://user-images.githubusercontent.com/77921212/134491667-0fa6cdc8-7a2c-4e79-9f9a-ac115bf35f65.png)
 
 
@@ -132,7 +133,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134492106-e2faf4b9-2d4d-4a11-bfa8-94a77bd7d543.png)
 
-*Apachen restarttaus meni läpi ja config-testissä tuli seuraavanlainen tulos:*
+*Apachen restarttaus meni läpi ja config-testissä tuli seuraavaksi seuraavanlainen tulos:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134492563-1f7fc5fa-2b14-4c09-b16a-8e28cbbcf734.png)
 
@@ -140,22 +141,21 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134492942-9939c12e-26f9-406b-b3e6-f0bdc5097192.png)
 
-*403 forbidden viittaa siihe, että minun peruskäyttäjällä ei ole oikeuksia kyseiseen sivuun*
+*"403 forbidden" viittaa siihe, että minun peruskäyttäjällä ei ole oikeuksia kyseiseen hakemistoon*
 
-![kuva](https://user-images.githubusercontent.com/77921212/134493366-e7736d20-d465-4d4b-b6ba-b2427ae6b8ea.png)
+> [Thu Sep 23 13:32:54.790654 2021] [authz_core:error] [pid 5042:tid 139659285112576] [client ::1:36274] AH01630: client denied by server configuration /home/danewsgi/public_wsgi
 
-*Viimeiseltä riviltä voi lukea "client denied server configuration", joka tarkoittaa, että kyseistä kansiota ei ole olemassa*
+*Yllänäkyvältä riviltä voi lukea "client denied server configuration", joka vahvistaa väittämän, että kyseiseen hakemistoon ei ole oikeuksia*
 
-*`groups danskubansku` -komennolla näin kaikki ryhmät, joihin oma käyttäjäni kuuluu, ja löysin danewsgi -ryhmän listasta.*
-*Tällä sain varmuuden siitä, että minulla on tarvittavat oikeudet toimenpiteisiin*
+*`groups danskubansku` -komennolla näin kaikki ryhmät, joihin oma käyttäjäni kuuluu, ja löysin danewsgi -ryhmän listasta. Tällä sain varmuuden siitä, että minulla on tarvittavat oikeudet toimenpiteisiin*
 
-*Sitten lähdin tekeään uutta hakemistoa komennolla `sudo mkdir /home/danewsgi/public_wsgi`. Tämän jälkeen muutin oikeuksia vielä niin, että peruskäyttäjästä tulisi hakemiston omistaja. Tähän käytin komentoa `sudo chown danewsgi:danewsgi /home/danewsgi/public_wsgi`.*
+*Sitten lähdin tekeään uutta hakemistoa komennolla `sudo mkdir /home/danewsgi/public_wsgi`. Tämän jälkeen muutin oikeuksia vielä niin, että peruskäyttäjästä tulisi kyseisen hakemistopolun omistaja. Tähän käytin komentoa `sudo chown danewsgi:danewsgi /home/danewsgi/public_wsgi`.*
 
-*Tämän jälkeen muutin oikeuksia vielä siten, että ryhmällä on luku-, kirjotus- ja ajo-oikeudet. Tähän käytin komentoa `sudo chmod g=rwxs /home/danewsgi/public_wsgi`. Sitten vielä tarkistin oikeudet ls -ld /home/danewsgi/public_wsgi -komennolla.*
+*Tämän jälkeen muutin oikeuksia vielä siten, että ryhmällä on luku-, kirjotus- ja ajo-oikeudet kyseiseen kansioon. Tähän käytin komentoa `sudo chmod g=rwxs /home/danewsgi/public_wsgi`. Sitten vielä tarkistin oikeudet ls -ld /home/danewsgi/public_wsgi -komennolla.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134495722-231627e5-84a8-45b2-9904-9e4d9bb91718.png)
 
-*Tämän jälkeen kokeilin udelleen curl localhost -komentoa, joka näytti tällä kertaa 404, eli not found.*
+*Tämän jälkeen kokeilin udelleen `curl localhost` -komentoa, joka näytti tällä kertaa "404", eli not found.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134496067-21826eda-d85f-4fde-b93e-f64d4c780083.png)
 
@@ -169,11 +169,11 @@
 
 *Tämän operaation jälkeen tiedoston avaaminen täysillä oikeuksilla onnistui.*
 
-*Tiedoston sisään kirjoitin seuraavanlaisesti:
+*Tiedoston sisään kirjoitin seuraavanlaisesti:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134506886-564d1b5b-f7b3-4261-8182-6feed6ad3274.png)
 
-*lisäsin oman wsgi-polun Pythonin poluksi ja importoin kohta luodun sovelluksen. Teron ohjeiden (lähde 2) mukaan tein vielä assertionin, jolla sain tarvittaessa virhe koodin jos Python 3 koodi tulkitaan Python 2 koodina. Tämän jälkeen tallensin ja kokeilin jälleen uudelleen localhostin tulostamista komentoriville.*
+*lisäsin oman wsgi-polun ja importoin kohta luodun sovelluksen. Teron ohjeen mukaan tein vielä assertionin, jolla sain tarvittaessa virhe koodin jos Python 3 koodi tulkitaan Python 2 koodiksi. Tämän jälkeen tallensin ja kokeilin jälleen uudelleen localhostin tulostamista komentoriville.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134507696-5a79200e-df0c-4d52-811d-eea58f8dc6be.png)
 
@@ -197,9 +197,25 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134516223-1d0e85c2-8f46-4c26-a6f3-d04952988cb0.png)
 
+\
+&nbsp;
+
+## Loppumietteitä
+
+*Tehtävä olivat mielenkiintoisia, joskin aikaa vieviä. Aikaa tehtäviin kului noin kuusi ja puoli tuntia.*
+
+\
+&nbsp;
+
+## Lähteet
 
 
-
+| Lähdenumero | Linkki |
+| ----------- | ------------------------------------------------------------------------- |
+| 1   | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/                           |
+| 2   | https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars |
+| 3   | https://terokarvinen.com/2020/hello-flask-python-web-app/ |
+| 4   | https://terokarvinen.com/2020/deploy-python-flask-to-production/                            |
 
 
 
