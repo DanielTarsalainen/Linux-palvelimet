@@ -212,10 +212,10 @@
 
 | Lähdenumero | Linkki |
 | ----------- | ------------------------------------------------------------------------- |
-| 1   | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/                           |
-| 2   | https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars |
-| 3   | https://terokarvinen.com/2020/hello-flask-python-web-app/ |
-| 4   | https://terokarvinen.com/2020/deploy-python-flask-to-production/                            |
+| 1 | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/                           |
+| 2 | https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars |
+| 3 | https://terokarvinen.com/2020/hello-flask-python-web-app/ |
+| 4 | https://terokarvinen.com/2020/deploy-python-flask-to-production/                            |
 
 
 
