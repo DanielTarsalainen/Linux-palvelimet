@@ -22,7 +22,7 @@
 
 #### a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
 
-*Olin harjotellut virtual hostin tekemistä jo pari viikkoa ennen tätä hetkeä, mutta virkistin muistiani Teron nettisivun ohjeella<sup>1</sup>. Aloitin tehtävien tekemisen keskiviikkona 22.9 noin kello kymmeneltä aamulla. Lähdin liikkeelle tehtvissä päivittämällä paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa  `sudoedit /etc/apache2/sites-available/danieltars.com.conf`.*
+*Olin harjotellut virtual hostin tekemistä jo pari viikkoa ennen tätä hetkeä, mutta virkistin muistiani Teron nettisivun ohjeella<sup>1</sup>. Aloitin tehtävien tekemisen keskiviikkona 22.9 noin kello kymmeneltä aamulla. Lähdin liikkeelle tehtävissä päivittämällä paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa  `sudoedit /etc/apache2/sites-available/danieltars.com.conf`.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134549159-4509e1b0-6849-4b84-a70d-dc85451e86cc.png)
 
