@@ -52,7 +52,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134465546-c5e388dc-57b5-473a-a3a1-47956ad09ed7.png)
 
-*Tämän jälkeen tein "Add a domain kohdasta" -kohdasta uuden domainin digital oceanin sivulla. Nimeksi annoin vuokratun domainin nimen, eli danieltarsalainen.xyz* 
+*Tämän jälkeen lisäsin "Add a domain kohdasta" -kohdasta uuden domainin digital oceanin sivulla. Nimeksi annoin vuokratun domainin nimen, eli danieltarsalainen.xyz* 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134468600-83188c40-f137-4cb4-964c-f2931dd0205a.png)
 
