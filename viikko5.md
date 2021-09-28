@@ -171,7 +171,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134506886-564d1b5b-f7b3-4261-8182-6feed6ad3274.png)
 
-*lisäsin oman wsgi-polun ja importoin kohta luodun sovelluksen. Teron ohjeen mukaan tein vielä assertionin, jolla sain tarvittaessa virhe koodin jos Python 3 koodi tulkitaan Python 2 koodiksi. Tämän jälkeen tallensin ja kokeilin jälleen uudelleen localhostin tulostamista komentoriville.*
+*lisäsin oman wsgi-polun ja importoin kohta luodun sovelluksen. Teron ohjeen mukaan tein vielä assertionin, jolla sain tarvittaessa virheilmoituksen jos Python 3 koodi tulkitaan Python 2 koodiksi. Tämän jälkeen tallensin ja kokeilin jälleen uudelleen localhostin tulostamista komentoriville.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134507696-5a79200e-df0c-4d52-811d-eea58f8dc6be.png)
 
