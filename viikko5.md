@@ -4,7 +4,7 @@
 \
 &nbsp;
 
-## Tehtävänanto
+## Tehtävänanto<sup>1</sup>
 
 
 - [x]  a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
@@ -20,9 +20,9 @@
 &nbsp;
 
 
-#### a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla.
+#### a) Leikkinimi. Tee Apachelle uusi Name Based Virtual Host, ja testaa sitä simuloimalla nimipalvelua hosts-tiedoston avulla<sup>1</sup>
 
-*Olin harjotellut virtual hostin tekemistä jo pari viikkoa ennen tätä hetkeä, mutta virkistin muistiani Tero Karvisen nettisivun ohjeella<sup>1</sup>. Aloitin tehtävien tekemisen keskiviikkona 22.9 noin kello kymmeneltä aamulla. Lähdin liikkeelle tehtävissä päivittämällä paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa  `sudoedit /etc/apache2/sites-available/danieltars.com.conf`.*
+*Olin harjotellut virtual hostin tekemistä jo pari viikkoa ennen tätä hetkeä, mutta virkistin muistiani Tero Karvisen nettisivun ohjeella<sup>2</sup>. Aloitin tehtävien tekemisen keskiviikkona 22.9 noin kello kymmeneltä aamulla. Lähdin liikkeelle tehtävissä päivittämällä paketit `sudo apt-get update` -komennolla. Sitten loin `sudo nano index.html` komennolla uuden html tiedoston `var/www/html` -hakemistoon. Seuraavaksi kirjotin `echo "Default" | sudo tee /var/Www/html/index.html` -komennolla kyseiselle sivulle tekstin "Default". Sitten lähdin luomaan uutta nimen sisältävää virtuaalista hostia. Tähän käytin komentoa  `sudoedit /etc/apache2/sites-available/danieltars.com.conf`.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134549159-4509e1b0-6849-4b84-a70d-dc85451e86cc.png)
 
@@ -46,7 +46,7 @@
 &nbsp;
 
 
-#### b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii.
+#### b) Julkinen nimi. Laita julkiselle palvelimellesi julkinen domain-nimi. Käytä oikeaa nimeä (joko vuokrattua tai ilmaispalvelusta). Tee Apachelle Name Based Virtual Host tälle nimelle. Kokeile eri laitteelta (esim. kännykältä), että nimi oikeasti toimii<sup>1</sup>
 
 *Vuokrasin namecheapista xyz-loppuisen domainin*
 
@@ -62,7 +62,7 @@
 
 *Sitten noudatin domain -sivulla näkyviä ohjeita nimipalvelinten muuttamiseen.*
 
-*Namecheapin -ohjeessa<sup>2</sup> neuvottiin vaihtamaan digital oceanin nameservers kohta seuraavanlaiseksi*
+*Namecheapin -ohjeessa<sup>3</sup> neuvottiin vaihtamaan digital oceanin nameservers kohta seuraavanlaiseksi*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134466271-eb778e0f-da39-4ad3-ab0d-d4b251e52d37.png)
 
@@ -70,7 +70,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134466373-4f7726da-0b9e-4a4e-8880-23418d31e0c9.png)
 
-*Digital oceanin ohjesivulla tosin luki, että muutoksissa voi mennä vain 30 minuttia. Odotellessani huomasin, että viime viikolta oli jäänyt Apache2 oletussivu var/www/html kansioon. Korjasin tämän tekemällä julkislle palvelimelle `echo "Default"|sudo tee /var/www/html/index.html`komennon. Näin oletussivulle ylikirjottui teksti "Default".*
+*Digital oceanin ohjesivulla<sup>3</sup> tosin luki, että muutoksissa voi mennä vain 30 minuttia. Odotellessani huomasin, että viime viikolta oli jäänyt Apache2 oletussivu var/www/html kansioon. Korjasin tämän tekemällä julkislle palvelimelle `echo "Default"|sudo tee /var/www/html/index.html`komennon. Näin oletussivulle ylikirjottui teksti "Default".*
 
 *Nyt kun aikaa oli kulunut reilu puoli tuntia, menin julkisella palvelimella `/etc/apache2/sites-available`-polkuun ja muokkasin viimeviikkoista `leinadsite.conf` tiedostoa. ServerNamessa ja ServerAliaksessa oli aikaisemmin nettisivun ip-osoite, mutta nyt kun domain saatiin yhdistettyä digital oceanin julkiseen palvelimeen, niin nyt niihin kohtaiin voitiin laitaa oman domainin nimen. ServerName -kohtaan "www.danieltarsalainen.xyz" ja ServerAlias -kohtaan "danieltarsalainen.xyz"*
 
@@ -90,9 +90,9 @@
 &nbsp;
 
 
-#### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa.
+#### c) Hello Flask! Tee Python Flask hei maailma kehitysympäristössä. Voit siis käyttää tuotantoon sopimatonta app.run(debug=True) ajoa<sup>1</sup>
 
-*Lähdin tekmään tehtävää Tero Karvisen kotisivun ohjeen<sup>3</sup> mukaan. Ensiksi päivitin saatavilla olevat paketit `sudo apt get update` -komennolla. Sitten asensin flaskin virtuaalikoneelle komennolla `sudo apt-get -y install python3-flask`.*
+*Lähdin tekmään tehtävää Tero Karvisen kotisivun ohjeen<sup>4</sup> mukaan. Ensiksi päivitin saatavilla olevat paketit `sudo apt get update` -komennolla. Sitten asensin flaskin virtuaalikoneelle komennolla `sudo apt-get -y install python3-flask`.*
 
 *Lähdin tekemään tehtävää luomalla kotihakemistoon uuden kansion nimeltä flask komennolla `mkdir flask`. Kansion sisälle loin uuden tiedoston nimeltä hello.py komennolla `nano hello.py`*
 
@@ -107,9 +107,9 @@
 &nbsp;
 
 
-#### d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')
+#### d) Tuotanto-Flask. Tee tuotantotyyppinen asennus Flaskista käyttäen Apachen WSGI-modulia. Kokeile, että pystyt muokkaamaan koodia ilman sudoa ja saat uuden version käyttöön käynnistämättä Apachea uudelleen. ('touch foo.wsgi')<sup>1</sup>
 
-*Hyödynsin tehtävän teossa Tero Karvisen sivulla näkyvää Deploy Python Flask to Production -ohjetta<sup>4</sup>. Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser danewsgi`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän "danwsgi" ryhmään.*
+*Hyödynsin tehtävän teossa Tero Karvisen sivulla näkyvää Deploy Python Flask to Production -ohjetta<sup>5</sup>. Lähdin liikkeelle luomalla uuden käyttäjän virtuaaliselle koneelle komennolla `sudo adduser danewsgi`. Tietojen täyttämisen jälkeen lukitsin käyttäjälle kirjautumisen `sudo usermod --lock danewsgi` -komennolla. `sudo adduser $(whoami) danewsgi` -komennolla lisäsin oman käyttäjän "danwsgi" ryhmään.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134489822-8c22dbb9-c9ba-4a6f-a214-a966d133e0fe.png)
 
@@ -210,10 +210,11 @@
 
 | Lähdenumero | Linkki |
 | ----------- | ------------------------------------------------------------------------- |
-| 1 | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/                           |
-| 2 | https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars |
-| 3 | https://terokarvinen.com/2020/hello-flask-python-web-app/ |
-| 4 | https://terokarvinen.com/2020/deploy-python-flask-to-production/                            |
+| 1 | https://terokarvinen.com/2021/linux-server-course-linux-palvelimet-ict4tn021-3016/#peruskaytto                           |
+| 2 | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/                           |
+| 3 | https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars |
+| 4 | https://terokarvinen.com/2020/hello-flask-python-web-app/ |
+| 5 | https://terokarvinen.com/2020/deploy-python-flask-to-production/                            |
 
 
 
