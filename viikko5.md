@@ -135,7 +135,7 @@
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134492563-1f7fc5fa-2b14-4c09-b16a-8e28cbbcf734.png)
 
-*Seuraavaksi kokeilin vielä Localhostin printtausta curlin avaulla ja siitä seurasi tuli seuraavanlainen tulos: *
+*Seuraavaksi kokeilin vielä Localhostin printtausta curlin avaulla ja siitä seurasi tuli seuraavanlainen tulos:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/134492942-9939c12e-26f9-406b-b3e6-f0bdc5097192.png)
 
