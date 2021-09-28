@@ -200,7 +200,7 @@
 
 ## Loppumietteitä
 
-*Tehtävä olivat mielenkiintoisia, joskin aikaavieviä. Aikaa tehtäviin kului noin kuusi ja puoli tuntia.*
+*Tehtävät olivat mielenkiintoisia, joskin aikaavieviä. Aikaa tehtäviin kului noin kuusi ja puoli tuntia.*
 
 \
 &nbsp;
