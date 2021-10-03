@@ -1,4 +1,4 @@
-# H5 Ohjelmat weppipalvelimella, Python Flask
+# H6 Shell scriptit, bash-skriptaus.
 ####  Tekijä: Daniel Tarsalainen 
 
 \
