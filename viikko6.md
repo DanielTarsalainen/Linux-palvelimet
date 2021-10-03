@@ -21,7 +21,7 @@
 
 
 #### a) Uusi komento Linuxiin. Tee uusi komento, joka tulostaa käyttäjälle hyödyllistä tietoa. Kokeile, että komento toimii kaikista hakemistoista ja muillakin käyttäjillä kuin omallasi<sup>1</sup>
-*Aloitin tehtävien tekemisen luomalla uuden kansion kotihakemistooni komennolla `$ mkdir linux_skriptit`. `linux_skriptit` -kansioon loin uuden tieston nimellä `showdate`. `showdate` -tiedostoon kirjoitin ensitöikseen, että skripti ohjautuu`#!/bin/bash` hakemistoon. Itse skripti oli seuraavanlainen:*
+*Aloitin tehtävien tekemisen luomalla uuden kansion kotihakemistooni komennolla `$ mkdir linux_skriptit`. `linux_skriptit` -kansioon loin uuden tieston nimellä `showdate`. `showdate` -tiedostoon kirjoitin ensitöikseen, että skripti ajetaan käyttämällä bashia tulkkina. Itse skripti oli seuraavanlainen:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/135107423-2f265be2-1767-4af1-b53b-a36f4201c29c.png)
 
