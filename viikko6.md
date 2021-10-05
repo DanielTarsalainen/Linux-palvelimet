@@ -147,7 +147,7 @@ Tämän jälkeen tuli seuraavanlainen ilmoitus terminaaliin:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/135759540-e523055e-f2b6-4389-b675-ce7f1297ee6b.png)
 
-*Kokeilin vielä POST-metodin toimivuutta kirjoittamalla tekstikenttään "Hei sielä" ja painamlla enter-painiketta. Tämän jälkeen avasin kehittäjän työkalut selaimessa F12 painikkeela ja menin "Netwokrk" -osioon. Sielä havaitsin, että POST-pyynnön lähetys oli statukseltaan 200, eli OK. Tästä voidaan todeta, että ohjelma toimi onnistuneesti tämänhetkisessä käyttötarkoituksessaan* 
+*Kokeilin vielä POST-metodin toimivuutta kirjoittamalla tekstikenttään "Hei sielä" ja painamlla enter-painiketta. Tämän jälkeen avasin kehittäjän työkalut selaimessa F12 painikkeela ja menin "Network" -osioon. Sielä havaitsin, että POST-pyynnön lähetys oli statukseltaan 200, eli OK. Tästä voidaan todeta, että ohjelma toimi onnistuneesti tämänhetkisessä käyttötarkoituksessaan* 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/135759614-0ce5b9fe-6870-4f7b-99c0-c252c4f230a4.png)
 
