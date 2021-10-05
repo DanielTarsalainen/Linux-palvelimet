@@ -113,7 +113,7 @@ Tämän jälkeen tuli seuraavanlainen ilmoitus terminaaliin:*
 
 *Sivun sisälle tein validin HTML-rakenteen ja tekstikentän, jonka metodiksi asetin "POST", tarkoittaen, että tekstikentän avulla voi lähettää jotakin tekstiä*
 
-*Tämän jälkeen käynnistin python flask ohjelman komennolla `python3 flask_app.py`. Tästä seurasi virhe:
+*Tämän jälkeen käynnistin python flask ohjelman komennolla `python3 flask_app.py`. Tästä seurasi virhe:*
 
 >  File "/home/danskubansku/flask/flask_app.py", line 9
 >    print(request.form["side"])
