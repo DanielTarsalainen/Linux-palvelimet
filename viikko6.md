@@ -60,7 +60,7 @@ Tämän jälkeen tuli seuraavanlainen ilmoitus terminaaliin:*
 
 #### b) Parametreja. Tee skripti, joka ottaa komentoriviparametreja. Esim. 'greetuser Tero' joka tulostaa "moi" ja parametrinä olevan nimen, esim "moi Tero"<sup>1</sup>
 
-*Aloitin skriptin kirjottamisen luomalla uuden tiedoston viime tehtävässä luotuun `linux_skriptit` -kansioon. Loin greet_user tiedoston komennolla `nano greet_user`. Tiedoston sisään kirjotin kyseisen rivin:
+*Aloitin skriptin kirjottamisen luomalla uuden tiedoston viime tehtävässä luotuun `linux_skriptit` -kansioon. Loin greet_user tiedoston komennolla `nano greet_user`. Tiedoston sisään kirjotin kyseisen rivin:*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/135120634-18cdcb0e-805f-492e-ab9f-cf33d1a71023.png)
 
