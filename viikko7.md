@@ -50,11 +50,11 @@ Sitten vihdoin ja viimein lähdin asentamaan debiania
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136556553-99ef9eee-cea1-4ef9-b78a-9c25ecaf50f3.png)
 
-
-
-
-
-
+Kun asennus oli valmis, järjestelmä käynnistyi automaattisesti uudelleen ja pääsin syöttämään kirjautumistunnuksia. Sisällekirjauduttuani asensin vielä virtuaaliselle koneelle Guest Additions ominaisuudet. Sen tein avaamalla sovelluksen ylävasemmalla näkyvästä menu-valikosta Devices -> Insert Guest Additions CD image, jonka jälkeen menin komentorivillä järjestelmän juuressa 
+``` 
+$ cd /media/daniel/VBox_GAs_6.1.26
+``` 
+VBox -kansioon, jossa ajoin laajennuspaketin komennolla  ```$ sudo bash VBoxLinuxAdditions.run```. Tämän jälkeen sammutin virtuaalisen koneen ja muutin General sivun asetuksia siten, että kopiointi on virtuaalikoneelta päätietokoneelle ja toisinpäin. Tämän jälkeen käynnistin virtuaalisen koneen uudelleen ja ryhdyin viimein suorittamaan laboratorio-harjoitusta.
 
 
 
