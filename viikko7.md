@@ -123,7 +123,6 @@ Selaimessa näkyvä oli seuraava:
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136698923-21c50350-ce4b-4f5d-a048-11a23d3d022f.png)
 
-
 \
 &nbsp;
 
@@ -131,12 +130,30 @@ Selaimessa näkyvä oli seuraava:
 ### invis.example.com
 ##### Laita Einarin esimerkkisovellus näkymään osoitteesta http://invis.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
 
+Menin järjestelmän juuresta hosts kansioon `sudoedit /etc/hosts`, jossa vaihdoin localhostin nimeksi `http://invis.example.com` seuraavanlaisesti. `127.0.0.1` siis vastaa paikallista palvelimen ip-osoitetta:
+
+![kuva](https://user-images.githubusercontent.com/77921212/136701347-79808c69-0ec2-454d-9b04-db7a4d2de643.png)
+
+
+Tämän jälkeen muutin vielä einari.conf tiedoston ServerName kohtaa vastaamaaan sivun uutta nimeä: `invis.example.com`
+
+![kuva](https://user-images.githubusercontent.com/77921212/136701301-44c4fd6b-3967-4e9c-b6e4-71cd8fae68fa.png)
+
+
+Sitten käynnistin vielä lopuksi palvelimen uudestaan `sudo systemctl restart apache2`. Uusi simuloitu nimi tuli onnistuneesti näkyviin:
+
+![kuva](https://user-images.githubusercontent.com/77921212/136702008-df3b9804-8fd2-4d63-ab09-d437e4be71dc.png)
+
+
 \
 &nbsp;
 
 
 ### mitakello
 ##### Tee uusi komento 'mitakello', joka tulostaa kellonajan. Komennon tulee toimia kaikilla käyttäjillä, kaikista hakemistoista pelkällä nimellä kutsuttuna.
+
+
+
 
 \
 &nbsp;
@@ -163,6 +180,8 @@ Selaimessa näkyvä oli seuraava:
 
 ### Metapaketin uusi nimi
 ##### Muuta metapaketin nimeksi xoy-tools. Asenna se.
+
+
 
 
 \
