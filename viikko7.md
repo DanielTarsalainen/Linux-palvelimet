@@ -6,20 +6,20 @@
 
 # Tehtävänanto
 
-- [ ] a) Ratkaise valitsemasi vanha arvioitava laboratorioharjoitus tältä kurssilta. (Löytyy DuckDuckGolla, Googlella, linkeistä tältä sivulta tai hakemalla yläreunan hakutoiminnolla). Sovella tarvittaessa tehtäviä tähän toteutukseen sopivaksi, esimerkiksi PHP:n tilalta voi tehdä vastaavan Pythonilla; tai jättää pois jonkin epärelevantin kohdan<sup>1</sup>
-- [ ] b) Tarkista, että olet viitannut jokaisessa tehtävässä kaikkiin lähteisiin. Esimerkiksi kurssiin, tehtävänantoihin, käyttämiisi toisten kotitehtävärapotteihin, manuaalisivuihin, kotisivuihin<sup>1</sup>
-- [ ] c) Kaikki tehtävät arvioitavaksi. Palauta linkki sivuun, josta löytyvät kaikki kotitehtäväraporttisi. Arviointi tehdään ensisijaisesti tästä linkistä. Linkki voi olla esimerkiksi blogin etusivu (jos blogissa on vain kotitehtävät) tai sivuun, jossa on linkki kuhunkin tehtävään. Kaikki tehtävät -linkin palautus Moodlessa kohtaan "Kaikki tehtävät arvioitavaksi"<sup>1</sup>
-- [ ] d) Tee uusi tyhjä virtuaalikone viimeisen kerran arvioitavaa labraa varten. Koneella ei saa olla luottamuksellisia tietoja. Kannattaa tehdä koneelle tarpeeksi iso virtuaalinen levy. Guest additions saa olla asennettuna<sup>1</sup>
+- [x] a) Ratkaise valitsemasi vanha arvioitava laboratorioharjoitus tältä kurssilta. (Löytyy DuckDuckGolla, Googlella, linkeistä tältä sivulta tai hakemalla yläreunan hakutoiminnolla). Sovella tarvittaessa tehtäviä tähän toteutukseen sopivaksi, esimerkiksi PHP:n tilalta voi tehdä vastaavan Pythonilla; tai jättää pois jonkin epärelevantin kohdan<sup>1</sup>
 
 
 \
 &nbsp;
 
-## a) Ratkaise valitsemasi vanha arvioitava laboratorioharjoitus tältä kurssilta. (Löytyy DuckDuckGolla, Googlella, linkeistä tältä sivulta tai hakemalla yläreunan hakutoiminnolla). Sovella tarvittaessa tehtäviä tähän toteutukseen sopivaksi, esimerkiksi PHP:n tilalta voi tehdä vastaavan Pythonilla; tai jättää pois jonkin epärelevantin kohdan<sup>1</sup>
+### a) Ratkaise valitsemasi vanha arvioitava laboratorioharjoitus tältä kurssilta. (Löytyy DuckDuckGolla, Googlella, linkeistä tältä sivulta tai hakemalla yläreunan hakutoiminnolla). Sovella tarvittaessa tehtäviä tähän toteutukseen sopivaksi, esimerkiksi PHP:n tilalta voi tehdä vastaavan Pythonilla; tai jättää pois jonkin epärelevantin kohdan<sup>1</sup>
 
-### Linuxin asennus
+\
+&nbsp;
 
-Aloitin tehtävän teon asentamalla uuden virtuaalikoneen 8.10.2021 . Tein uuden virtuaalikoneen painamalla Oraclen VirtualBox Managerista sivun vasemmasta yläkulmasta näkyvästä Machine painikkeesta kohdan `new machine`. 
+### Linuxin asennus<sup>2</sup>
+
+Ennen tehtävien tekemistä asensin uuden virtuaalikoneen 8.10.2021. Tein uuden virtuaalikoneen painamalla Oraclen VirtualBox Managerista sivun vasemmasta yläkulmasta näkyvästä Machine painikkeesta kohdan `new machine`. 
 
 Tämän jälkeen avautui modaali-ikkuna näytön keskelle, johon laitoin nimeksi `daniel2` ja käyttöjärjestelmäksi ja versioksi `Debian (64-bit)`. Tämän jälkeen painoin `next` -painiketta, jonka jälkeen avautui uusi ikkuna, jossa kysyttiin välimuistin määrää. Laitoin määräksi 4000 megatavua. 
 
@@ -56,8 +56,10 @@ Kun asennus oli valmis, järjestelmä käynnistyi automaattisesti uudelleen ja p
 &nbsp;
 
 
-### Työntekijät
-##### Työntekijöitämme ovat Joe Doe, Jorma Mähkylä, Pekka Hurme, Ronaldo Smith, Håkan Petersson ja Einari Mikkonen. Laita einarin käyttäjätunnukseksi "einari". Tee kullekin käyttäjälle esimerkkikotisivu.
+### Työntekijät<sup>3</sup>
+##### Työntekijöitämme ovat Joe Doe, Jorma Mähkylä, Pekka Hurme, Ronaldo Smith, Håkan Petersson ja Einari Mikkonen. Laita einarin käyttäjätunnukseksi "einari". Tee kullekin käyttäjälle esimerkkikotisivu<sup>3</sup>
+
+Käytin tehtävän teossa vanhaa raporttiani<sup>4</sup>
 
 Aloitin tehtävän teon tutulla `sudo apt-get update` -komennolla, jonka jälkeen asensin maailman suosituimman palvelimen, eli Apache2 -palvelimen komennolla `sudo apt-get install apache2`. Tämän jälkeen halusin heti korvata apache2 oletussivun tekstillä "Oletus". Käytin tähän komentoa: `echo "Oletus" | sudo tee /var/www/html/index.html`. Tämän jälkeen käynnistin Apachen palvelimen komennolla `sudo systemctl start apache2`, jonka jälkeen tulostin sivun sisällön komentorivillä komennolla `curl localhost`. Menin myös selaimeen, jonne sivu ilmestyi onnistuneesti näkyviin.
 
@@ -69,24 +71,23 @@ Tämän jälkeen loin uuden käyttäjän nimeltä Einari Mikkonen. Käytin täh�
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136691149-35d5e743-b244-471f-a7d1-4489f839b516.png)
 
-Tämän jälkeen lissäin itseni käyttäjän "einari" -ryhmään komennolla `sudo adduser $(whoami) einari`, jonka jälkeen loin einarin hakemistoon uuden kansion nimeltä `public_html` komennolla `sudo mkdir public_html`. Tämän jälkeen muutin kansion oikeuksia vielä siten, että ryhmästä ja  käyttäjästä einari tulisi kansion omistaja. Käytin tähän komentoa `sudo chown einari:einari /home/einari/public_html`. Tämän jälkeen kirjauduin ulos käyttäjältä ja kirjauduin uudelleen sisään, jotta ryhmä "einari" aktivoituisi. Tämän jälkeen annoin vielä ryhmän jäsenille kirjoitus, luku ja ajo-oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_html`. "s" -kirjain muistaakseni spesifioi, että oikeudet tulevat vain kyseiseen kansioon. Tämän jälkeen kokeilin luoda uutta kansiota public_html kansioon, mutta se ei onnistunut, joten päätin vielä kerran kirjautua ulos ja sisään. Tarkistin vielä ennen tiedoston luontia oikeudet, jotka olivat juuri niin kuin pitkin. 
+Tämän jälkeen lisäsin itseni käyttäjän "einari" -ryhmään komennolla `sudo adduser $(whoami) einari`, jonka jälkeen loin einarin hakemistoon uuden kansion nimeltä `public_html` komennolla `sudo mkdir public_html`. Tämän jälkeen muutin kansion oikeuksia vielä siten, että ryhmästä ja käyttäjästä einari tulisi kansion omistaja. Käytin tähän komentoa `sudo chown einari:einari /home/einari/public_html`. Tämän jälkeen kirjauduin ulos käyttäjältä ja kirjauduin uudelleen sisään, jotta ryhmä "einari" aktivoituisi. Tämän jälkeen annoin vielä ryhmän jäsenille kirjoitus, luku ja ajo-oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_html`. "s" -kirjain muistaakseni spesifioi, että oikeudet tulevat vain kyseiseen kansioon. Tämän jälkeen kokeilin luoda uutta kansiota public_html kansioon, mutta se ei onnistunut, joten päätin vielä kerran kirjautua ulos ja sisään. Tarkistin vielä ennen tiedoston luontia oikeudet, jotka olivat juuri niin kuin pitkin. 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136692634-3dfe7e40-11dd-409e-86b7-27d75e16a52d.png)
 
 Tämän jälkeen loin uuden tiedoston nimeltä index.html, jonne kirjoitin sanan "Einari". Sitten käynnistin apache2-palvelimen uudestaan. `localhost/~einari` -sivulle ei ollut ilmestynyt vielä mitään, joten päättelin, että käyttäjähakemistoja ei ole vielä aktivoitu apache2 -palvelimen käyttöön. Siihen käytin komentoa `sudo a2enmod userdir`. Sitten vielä käynnistin palvelimen uudestaan komennolla `sudo sytemctl restart apache2`. 
 
-
 ![kuva](https://user-images.githubusercontent.com/77921212/136693288-517fd93f-f281-4651-9594-f694cf32614e.png)
 
-Helpompaa olisi ollut tehdä kansio ja sivu itse einarin käyttäjällä, mutta ajattelin, että yrityksen toimitusjohtaja saattaisi hyvinkin tehdä samalla tavalla kuin minäkin, eli operoida omalta käyttäjältä käsin. 
-
-
+Helpompaa olisi tietenkin ollut tehdä kansio ja sivu itse Einarin käyttäjällä, mutta ajattelin, että yrityksen toimitusjohtaja saattaisi hyvinkin tehdä samalla tavalla kuin minäkin, eli operoida omalta käyttäjältä käsin. 
 
 \
 &nbsp;
 
-### LAMP
-##### Asenna LAMP - Linux, Apache, MySQL, PHP. Tee einarin kotihakemistoon esimerkkisovellus, joka näyttää tietueita tietokannasta.
+### LAMP<sup>3</sup>
+##### Asenna LAMP - Linux, Apache, MySQL, PHP. Tee einarin kotihakemistoon esimerkkisovellus, joka näyttää tietueita tietokannasta<sup>3</sup>
+
+Käytin tehtävässä apuna parin viikon takaista raporttiani<sup>5</sup>
 
 Koska MySQL tietokantaa ja PHP:tä ei käytetty tunneilla niin päätin tehtävässä virkistää muistiani Python Flaskin ja WSGI moduulin käytöstä. Lähdin liikkeelle tehtävässä tekemällä uuden kansion einarin kotihakemistoon komennolla `sudo mkdir public_wsgi`. Heti tämän jälkeen muutin kansion omistjaksi einarin ryhmän `sudo chown einari:einari /home/einari/public_wsgi`. Tämän jälkeen lisäsin ryhmälle vielä tarvittavat oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_wsgi`. Tämän jälkeen tarkistin vielä että tarvittavat oikeudet ilmestyivät kansioon:
 
@@ -119,7 +120,7 @@ daniel@daniel-virtualbox:/home/einari/public_wsgi$ curl localhost
 Welcome to Einari Mikkonen's site! :)
 ```
 
-Selaimessa näkyvä oli seuraava:
+Selaimessa näkymä oli seuraava:
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136698923-21c50350-ce4b-4f5d-a048-11a23d3d022f.png)
 
@@ -127,8 +128,8 @@ Selaimessa näkyvä oli seuraava:
 &nbsp;
 
 
-### invis.example.com
-##### Laita Einarin esimerkkisovellus näkymään osoitteesta http://invis.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
+### invis.example.com<sup>3</sup>
+##### Laita Einarin esimerkkisovellus näkymään osoitteesta http://invis.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla<sup>3</sup>
 
 Menin järjestelmän juuresta hosts kansioon `sudoedit /etc/hosts`, jossa vaihdoin localhostin nimeksi `http://invis.example.com` seuraavanlaisesti. `127.0.0.1` siis vastaa paikallista palvelimen ip-osoitetta:
 
@@ -149,8 +150,10 @@ Sitten käynnistin vielä lopuksi palvelimen uudestaan `sudo systemctl restart a
 &nbsp;
 
 
-### mitakello
-##### Tee uusi komento 'mitakello', joka tulostaa kellonajan. Komennon tulee toimia kaikilla käyttäjillä, kaikista hakemistoista pelkällä nimellä kutsuttuna.
+### mitakello<sup>3</sup>
+##### Tee uusi komento 'mitakello', joka tulostaa kellonajan. Komennon tulee toimia kaikilla käyttäjillä, kaikista hakemistoista pelkällä nimellä kutsuttuna<sup>3</sup>
+
+Käytin tehtävässä apuna viime viikolla tehtyä raporttia<sup>6</sup>
 
 Lähdin tekemään tehtävää luomalla uuden kansion käyttäjän "daniel" kotihakemistoon komennolla `mkdir skriptit`. Kansion sisään tein uuden tiedoston komennolla `nano mitakello`.
 
@@ -195,14 +198,10 @@ Show time: 18:37:45
 &nbsp;
 
 
-### Metapaketti
-##### Tee meille metapaketti, joka asentaa ohjelmat: git, httpie, curl, mitmproxy. Kuulemma "karvinen equivs" hakusanalla saattaisi löytyä ohjeita. Liitä metapaketin lähdekoodi palautettavan lab.txt:n loppuun.
+### unikarhu.example.com<sup>3</sup>
+##### Laita staattinen html5-esimerkkisivu näkyviin osoitteeseen http://unikarhu.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla<sup>3</sup>
 
-\
-&nbsp;
-
-### unikarhu.example.com
-##### Laita staattinen html5-esimerkkisivu näkyviin osoitteeseen http://unikarhu.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
+Käytin tehtävän teossa Teron ohjetta muistin virkistykseksi<sup>7</sup>
 
 Lähdin tekemään danielin kotihakemistoon uudet kansiot nimeltä public_sites ja sen sisään unikarhu.com. unikarhu.com kansioon tein uuden html tiedoston nimeltä index.html. Tiedoston sisältö oli seuraavanlainen:
 
@@ -225,23 +224,12 @@ Sivu tuli onnistuneesti näkyviin
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136706058-3295c227-c440-4828-8574-5d0a0982f175.png)
 
-
 \
 &nbsp;
 
-## b) Tarkista, että olet viitannut jokaisessa tehtävässä kaikkiin lähteisiin. Esimerkiksi kurssiin, tehtävänantoihin, käyttämiisi toisten kotitehtävärapotteihin, manuaalisivuihin, kotisivuihin<sup>1</sup>
+## Loppumietteitä
 
-
-\
-&nbsp;
-
-## c) Kaikki tehtävät arvioitavaksi. Palauta linkki sivuun, josta löytyvät kaikki kotitehtäväraporttisi. Arviointi tehdään ensisijaisesti tästä linkistä. Linkki voi olla esimerkiksi blogin etusivu (jos blogissa on vain kotitehtävät) tai sivuun, jossa on linkki kuhunkin tehtävään. Kaikki tehtävät -linkin palautus Moodlessa kohtaan "Kaikki tehtävät arvioitavaksi"<sup>1</sup>
-
-\
-&nbsp;
-
-## d) Tee uusi tyhjä virtuaalikone viimeisen kerran arvioitavaa labraa varten. Koneella ei saa olla luottamuksellisia tietoja. Kannattaa tehdä koneelle tarpeeksi iso virtuaalinen levy. Guest additions saa olla asennettuna<sup>1</sup>
-
+Tehtävät olivat mukavaa kertausta. Tuntuu, että osaamiseni vahvistui paremmaksi Linuxissa kertauksen myötä. Aikaa tehtäviin kului noin seitsemän tuntia. Tein tehtäviä sekä 8.10.2021, että 10.10.2021.
 
 \
 &nbsp;
@@ -252,8 +240,12 @@ Sivu tuli onnistuneesti näkyviin
 | Lähdenumero | Linkki |
 | ----------- | ------------------------------------------------------------------------- |
 | 1 | https://terokarvinen.com/2021/linux-server-course-linux-palvelimet-ict4tn021-3016/#peruskaytto                           |
-| 2 |                           |
-| 3 |  |
+| 2 | https://terokarvinen.com/2021/install-debian-on-virtualbox/|
+| 3 | https://terokarvinen.com/2018/arvioitava-laboratorioharjoitus-linux-palvelimet-ict4tn021-7-tiistai-alkukevat-2018-5-op/?fromSearch=laboratori                  |
+| 4 | https://github.com/DanielTarsalainen/Linux-palvelimet/blob/main/viikko3.md               |
+| 5 | https://github.com/DanielTarsalainen/Linux-palvelimet/blob/main/viikko5.md|
+| 6 | https://github.com/DanielTarsalainen/Linux-palvelimet/blob/main/viikko6.md|
+| 7 | https://terokarvinen.com/2018/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/|
 
 
 
