@@ -49,7 +49,7 @@ Sitten vihdoin ja viimein lähdin asentamaan debiania
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136556553-99ef9eee-cea1-4ef9-b78a-9c25ecaf50f3.png)
 
-Kun asennus oli valmis, järjestelmä käynnistyi automaattisesti uudelleen ja pääsin syöttämään kirjautumistunnuksia. Sisällekirjauduttuani asensin vielä virtuaaliselle koneelle Guest Additions ominaisuudet. Sen tein avaamalla sovelluksen ylävasemmalla näkyvästä menu-valikosta Devices -> Insert Guest Additions CD image, jonka jälkeen menin komentorivillä järjestelmän juuressa VBox -kansioon komennolla `cd /media/daniel/VBox_GAs_6.1.26`, jossa ajoin laajennuspaketin komennolla `sudo bash VBoxLinuxAdditions.run`. Tämän jälkeen sammutin virtuaalisen koneen ja muutin General sivun asetuksia siten, että kopiointi on virtuaalikoneelta päätietokoneelle ja toisinpäin. Tämän jälkeen käynnistin virtuaalisen koneen uudelleen, jonka jälkeen olin valmis suorittamaan laboratorio-harjoitusta.
+Kun asennus oli valmis, järjestelmä käynnistyi automaattisesti uudelleen ja pääsin syöttämään kirjautumistunnuksia. Sisällekirjauduttuani asensin vielä virtuaaliselle koneelle Guest Additions ominaisuudet. Sen tein avaamalla sovelluksen ylävasemmalla näkyvästä menu-valikosta Devices -> Insert Guest Additions CD image, jonka jälkeen menin komentorivillä järjestelmän juuressa VBox -kansioon komennolla `cd /media/daniel/VBox_GAs_6.1.26`, jossa ajoin laajennuspaketin komennolla `sudo bash VBoxLinuxAdditions.run`. Tämän jälkeen sammutin virtuaalisen koneen ja muutin General sivun asetuksia siten, että kopiointi on mahdollista virtuaalikoneelta päätietokoneelle ja toisinpäin. Tämän jälkeen käynnistin virtuaalisen koneen uudelleen, jonka jälkeen olin valmis suorittamaan laboratorio-harjoitusta.
 
 
 \
@@ -59,7 +59,7 @@ Kun asennus oli valmis, järjestelmä käynnistyi automaattisesti uudelleen ja p
 ### Työntekijät<sup>3</sup>
 ##### Työntekijöitämme ovat Joe Doe, Jorma Mähkylä, Pekka Hurme, Ronaldo Smith, Håkan Petersson ja Einari Mikkonen. Laita einarin käyttäjätunnukseksi "einari". Tee kullekin käyttäjälle esimerkkikotisivu<sup>3</sup>
 
-Käytin tehtävän teossa vanhaa raporttiani<sup>4</sup>
+Käytin tehtävän teossa apuna vanhaa raporttiani<sup>4</sup>
 
 Aloitin tehtävän teon tutulla `sudo apt-get update` -komennolla, jonka jälkeen asensin maailman suosituimman palvelimen, eli Apache2 -palvelimen komennolla `sudo apt-get install apache2`. Tämän jälkeen halusin heti korvata apache2 oletussivun tekstillä "Oletus". Käytin tähän komentoa: `echo "Oletus" | sudo tee /var/www/html/index.html`. Tämän jälkeen käynnistin Apachen palvelimen komennolla `sudo systemctl start apache2`, jonka jälkeen tulostin sivun sisällön komentorivillä komennolla `curl localhost`. Menin myös selaimeen, jonne sivu ilmestyi onnistuneesti näkyviin.
 
@@ -67,11 +67,11 @@ Aloitin tehtävän teon tutulla `sudo apt-get update` -komennolla, jonka jälkee
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136690820-94058c2e-1c99-406b-8ed6-5fb41fb8429f.png)
 
-Tämän jälkeen loin uuden käyttäjän nimeltä Einari Mikkonen. Käytin tähän komentoa `sudo adduser einari`. Annoin käyttäjälle vahvan sanan. 
+Tämän jälkeen loin uuden käyttäjän nimeltä Einari Mikkonen. Käytin tähän komentoa `sudo adduser einari`. Annoin käyttäjälle vahvan salasanan. 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136691149-35d5e743-b244-471f-a7d1-4489f839b516.png)
 
-Tämän jälkeen lisäsin itseni käyttäjän "einari" -ryhmään komennolla `sudo adduser $(whoami) einari`, jonka jälkeen loin einarin hakemistoon uuden kansion nimeltä `public_html` komennolla `sudo mkdir public_html`. Tämän jälkeen muutin kansion oikeuksia vielä siten, että ryhmästä ja käyttäjästä einari tulisi kansion omistaja. Käytin tähän komentoa `sudo chown einari:einari /home/einari/public_html`. Tämän jälkeen kirjauduin ulos käyttäjältä ja kirjauduin uudelleen sisään, jotta ryhmä "einari" aktivoituisi. Tämän jälkeen annoin vielä ryhmän jäsenille kirjoitus, luku ja ajo-oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_html`. "s" -kirjain muistaakseni spesifioi, että oikeudet tulevat vain kyseiseen kansioon. Tämän jälkeen kokeilin luoda uutta kansiota public_html kansioon, mutta se ei onnistunut, joten päätin vielä kerran kirjautua ulos ja sisään. Tarkistin vielä ennen tiedoston luontia oikeudet, jotka olivat juuri niin kuin pitkin. 
+Tämän jälkeen lisäsin itseni käyttäjän "einari" -ryhmään komennolla `sudo adduser $(whoami) einari`, jonka jälkeen loin einarin hakemistoon uuden kansion nimeltä `public_html` komennolla `sudo mkdir public_html`. Tämän jälkeen muutin kansion oikeuksia vielä siten, että ryhmästä ja käyttäjästä einari tulisi kansion omistaja. Käytin tähän komentoa `sudo chown einari:einari /home/einari/public_html`. Tämän jälkeen kirjauduin ulos käyttäjältä ja kirjauduin uudelleen sisään, jotta ryhmä "einari" aktivoituisi. Tämän jälkeen annoin vielä ryhmän jäsenille kirjoitus, luku ja ajo-oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_html`. "s" -kirjain muistaakseni spesifioi, että oikeudet tulevat vain kyseiseen kansioon. Tämän jälkeen kokeilin luoda uutta tiedostoa public_html kansioon, mutta se ei onnistunut, joten päätin vielä kerran kirjautua ulos ja sisään. Tarkistin vielä ennen tiedoston luontia oikeudet, jotka olivat juuri niin kuin pitkin. 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136692634-3dfe7e40-11dd-409e-86b7-27d75e16a52d.png)
 
@@ -89,7 +89,7 @@ Helpompaa olisi tietenkin ollut tehdä kansio ja sivu itse Einarin käyttäjäll
 
 Käytin tehtävässä apuna parin viikon takaista raporttiani<sup>5</sup>
 
-Koska MySQL tietokantaa ja PHP:tä ei käytetty tunneilla niin päätin tehtävässä virkistää muistiani Python Flaskin ja WSGI moduulin käytöstä. Lähdin liikkeelle tehtävässä tekemällä uuden kansion einarin kotihakemistoon komennolla `sudo mkdir public_wsgi`. Heti tämän jälkeen muutin kansion omistjaksi einarin ryhmän `sudo chown einari:einari /home/einari/public_wsgi`. Tämän jälkeen lisäsin ryhmälle vielä tarvittavat oikeudet komennolla `sudo chmod g=rwxs /home/einari/public_wsgi`. Tämän jälkeen tarkistin vielä että tarvittavat oikeudet ilmestyivät kansioon:
+Koska MySQL tietokantaa ja PHP:tä ei käytetty tunneilla niin päätin tehtävässä virkistää muistiani Python Flaskin ja WSGI moduulin käytöstä. Lähdin liikkeelle tehtävässä tekemällä uuden kansion einarin kotihakemistoon komennolla `sudo mkdir public_wsgi`. Heti tämän jälkeen muutin kansion omistajaksi einarin käyttäjän sekä einarin ryhmän `sudo chown einari:einari /home/einari/public_wsgi`. Tämän jälkeen lisäsin ryhmälle vielä tarvittavat oikeudet (luku, kirjoitus ja ajo-oikeudet) komennolla `sudo chmod g=rwxs /home/einari/public_wsgi`. Tämän jälkeen tarkistin vielä että tarvittavat oikeudet ilmestyivät kansioon:
 
 ```
 daniel@daniel-virtualbox:/home/einari/public_wsgi$ ls -ld
@@ -113,7 +113,7 @@ Tämän jälkeen lähdin luomaan Python ohjelman einarin kotihakemistoon komenno
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136698784-1da7ab06-c930-4036-a45e-ddcdf43f2de6.png)
 
-Curlilla selvisi, että palvelimella tuli virhe 500, eli Internal Server Error. Kansio siis tunnistetaan, mutta sen sisältöä ei. Selvisi, että olin nimennyt einari.wsgi -kansiossa polun väärin einari_wsgi:ksi, vaikka sen täytyi olla public_wsgi. Korjasin virheen ja päivitin ohjelman käyttämällä `touch einari.wsgi` -komentoa, jolloin itse palvelinta ei tarvinnut käynnistää uudelleen. Tämän jälkeen curlilla saatiin tulostettua haluttu lopputulos:
+Curlilla selvisi, että palvelimella tuli virhe 500, eli Internal Server Error. Selvisi, että olin nimennyt einari.wsgi -kansiossa polun väärin einari_wsgi:ksi, vaikka sen täytyi olla public_wsgi. Korjasin virheen ja päivitin ohjelman käyttämällä `touch einari.wsgi` -komentoa, jolloin itse palvelinta ei tarvinnut käynnistää uudelleen. Tämän jälkeen curlilla saatiin tulostettua haluttu lopputulos:
 
 ```
 daniel@daniel-virtualbox:/home/einari/public_wsgi$ curl localhost 
@@ -208,13 +208,13 @@ Lähdin tekemään danielin kotihakemistoon uudet kansiot nimeltä public_sites 
 ![kuva](https://user-images.githubusercontent.com/77921212/136703325-392a55b5-13ad-4097-94bc-a8ad0b766801.png)
 
 Sitten menin luomaan uuden config tiedoston komennolla `sudoedit /etc/apache2/sites-available/unikarhu.com.conf`.
-Sisällöstä tuli seruaavanlainen:
+Sisällöstä tuli seuraavanlainen:
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136706037-3fa32a6c-35e6-49a7-8ba1-352ead38df49.png)
 
-Tämän jälkeen otin VirtualHostin käyttöön komennolla `sudo a2ensite unikarhu.com.conf` ja otin vanhan virtualhostin poist käytöstä komennolla `sudo a2disste einariwsgi.conf`.
+Tämän jälkeen otin VirtualHostin käyttöön komennolla `sudo a2ensite unikarhu.com.conf` ja otin vanhan virtualhostin pois käytöstä komennolla `sudo a2disste einariwsgi.conf`.
 
-Lopuksi menin vielä etc hosts kansioon, jonne lisäsin testipavelimen kohdalle unikarhu.example.com sivun. 
+Lopuksi menin vielä `etc hosts` -kansioon, jonne lisäsin testipavelimen kohdalle `unikarhu.example.com` sivun. 
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136705691-e97e148a-bfe9-4dd1-bbb8-658e3b37741d.png)
 
@@ -229,7 +229,7 @@ Sivu tuli onnistuneesti näkyviin
 
 ## Loppumietteitä
 
-Tehtävät olivat mukavaa kertausta. Tuntuu, että osaamiseni vahvistui paremmaksi Linuxissa kertauksen myötä. Aikaa tehtäviin kului noin seitsemän tuntia. Tein tehtäviä sekä 8.10.2021, että 10.10.2021.
+Tehtävät olivat mukavaa kertausta. Tuntuu, että osaamiseni vahvistui paremmaksi kertauksen myötä. Aikaa tehtäviin kului noin seitsemän tuntia. Tein tehtäviä sekä 8.10.2021, että 10.10.2021.
 
 \
 &nbsp;
