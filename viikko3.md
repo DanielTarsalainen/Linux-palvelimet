@@ -23,7 +23,7 @@
 ![kuva](https://user-images.githubusercontent.com/77921212/132941775-c5cb3824-7653-4140-af6e-af5d40370085.png)
 
 
-*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot `sudo 2enmod userdir`, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 -palvelimen uudestaan komennolla `sudo systemctl restart apache2` ja loin uuden hakemiston nimellä "public_html" omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston `cd public_html -komennolla` ja tein hakemistoon tiedoston nimellä "index.html". Tähän käytin komentoa `nano index.html`. Html -tiedostoon tein yksinkertaisen html-rakenteen. Alla kyseinen tiedosto selaimessa.*
+*Seuraavaksi lähdin kokeilemaan oman kotisivun pyörittämistä lokaalisti. Tähän tarvitsin komennot `sudo a2enmod userdir`, jolla aktivoin käyttäjähakemiston apache palvelimen käyttöön. Seuraavaksi käynnistin apache2 -palvelimen uudestaan komennolla `sudo systemctl restart apache2` ja loin uuden hakemiston nimellä "public_html" omaan käyttäjähakemistooni. Tämän jälkeen valitsin hakemiston `cd public_html -komennolla` ja tein hakemistoon tiedoston nimellä "index.html". Tähän käytin komentoa `nano index.html`. Html -tiedostoon tein yksinkertaisen html-rakenteen. Alla kyseinen tiedosto selaimessa.*
 
 ![kuva](https://user-images.githubusercontent.com/77921212/132941794-41cccbc4-9258-4d70-a256-49679606aa62.png)
 
