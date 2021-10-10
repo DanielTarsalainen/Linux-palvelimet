@@ -100,9 +100,28 @@ Tämän jälkeen asensin Python flaskin komennolla: `sudo apt-get -y install pyt
 
 Sitten loin uuden wsgi-moduulin public_wsgi kansioon. Tähän käytin komentoa `nano einari.wsgi`. Tiedoston sisään tein tyypillisen wsgi rakenteeen
 
-![kuva](https://user-images.githubusercontent.com/77921212/136694650-1e77625f-e1f6-452b-871d-4dcde9a60a55.png)
+![kuva](https://user-images.githubusercontent.com/77921212/136697620-5ccf7f2c-c1a2-49c6-8ab6-adbac80fb6c6.png)
 
+Tämän jälkeen tein uuden virtual hostin nimellä einari.conf. 
 
+![kuva](https://user-images.githubusercontent.com/77921212/136698032-6f2aeaca-7003-418e-9226-e03935d7bb5b.png)
+
+Sitten poistin vanhan apachen oletus virtualhost configuraatiot komennola `sudo a2dissite 000-default.conf` ja otin uudet käyttöön komennolla sudo `a2ensite einariwsgi.conf`. Tämän jälkeen käynnistin apachen uudellee, jotta uudet asetukset tulisi voimaan. Käytin komentoa `sudo systemctl restart apache2`. 
+
+Tämän jälkeen lähdin luomaan Python ohjelman einarin kotihakemistoon komennolla `nano tervehdys.py`. Ohjelma sisällöstä tuli seuraavanlainen:
+
+![kuva](https://user-images.githubusercontent.com/77921212/136698784-1da7ab06-c930-4036-a45e-ddcdf43f2de6.png)
+
+Curlilla selvisi, että palvelimella tuli virhe 500, eli Internal Server Error. Kansio siis tunnistetaan, mutta sen sisältöä ei. Selvisi, että olin nimennyt einari.wsgi -kansiossa polun väärin einari_wsgi:ksi, vaikka sen täytyi olla public_wsgi. Korjasin virheen ja päivitin ohjelman käyttämällä `touch einari.wsgi` -komentoa, jolloin itse palvelinta ei tarvinnut käynnistää uudelleen. Tämän jälkeen curlilla saatiin tulostettua haluttu lopputulos:
+
+```
+daniel@daniel-virtualbox:/home/einari/public_wsgi$ curl localhost 
+Welcome to Einari Mikkonen's site! :)
+```
+
+Selaimessa näkyvä oli seuraava:
+
+![kuva](https://user-images.githubusercontent.com/77921212/136698923-21c50350-ce4b-4f5d-a048-11a23d3d022f.png)
 
 
 \
