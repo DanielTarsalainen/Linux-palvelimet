@@ -152,7 +152,43 @@ Sitten käynnistin vielä lopuksi palvelimen uudestaan `sudo systemctl restart a
 ### mitakello
 ##### Tee uusi komento 'mitakello', joka tulostaa kellonajan. Komennon tulee toimia kaikilla käyttäjillä, kaikista hakemistoista pelkällä nimellä kutsuttuna.
 
+Lähdin tekemään tehtävää luomalla uuden kansion käyttäjän "daniel" kotihakemistoon komennolla `mkdir skriptit`. Kansion sisään tein uuden tiedoston komennolla `nano mitakello`.
 
+![kuva](https://user-images.githubusercontent.com/77921212/136702312-c0d4aff6-13c4-42e2-9a8a-04f111007471.png)
+
+Ensimmäinen rivi määrittää, että bashia käytetään skriptin tulkkina. Kolmannella rivillä määritetään date olio, ja echon kohdalla se tulostetaan tekstin kanssa ja tietyn formaatin mukaisesti. 
+
+![kuva](https://user-images.githubusercontent.com/77921212/136702483-93eb512e-1479-4c5b-943a-aaba02876e6b.png)
+
+Kokeilin ajaa skriptin komennolla `bash mitakello`:
+
+```
+daniel@daniel-virtualbox:~/skriptit$ bash mitakello
+Show time: 18:30:58
+```
+
+Tämän jälkeen muutin, että kaikilla on oikeus skriptin ajamiseen. Käytin tähän komentoa `chmod ugo+x mitakello`. Oikeudet päivittyivät onnistuneesti:
+
+```
+daniel@daniel-virtualbox:~/skriptit$ ls -ld mitakello
+-rwxr-xr-x 1 daniel daniel 65 10.10. 18:30 mitakello
+
+```
+
+Lopuksi vielä kopioin tiedston `/ust/local/bin` hakemistoon, mikä mahdollistaa sen, että skriptin voi ajaa mistä tahansa sijainnista komentoriviltä. Tein sen komennolla `sudo cp -v mitakello /usr/local/bin`. Kopiointi oli onnistunut.
+
+```
+daniel@daniel-virtualbox:~/skriptit$ sudo cp -v mitakello /usr/local/bin
+[sudo] password for daniel: 
+'mitakello' -> '/usr/local/bin/mitakello'
+```
+
+Tämän jälkeen ajoin skriptin einarin kotihakemistosta:
+
+```
+daniel@daniel-virtualbox:/home/einari$ bash mitakello
+Show time: 18:37:45
+```
 
 
 \
@@ -168,20 +204,26 @@ Sitten käynnistin vielä lopuksi palvelimen uudestaan `sudo systemctl restart a
 ### unikarhu.example.com
 ##### Laita staattinen html5-esimerkkisivu näkyviin osoitteeseen http://unikarhu.example.com. Voit simuloida nimipalvelun toimintaa hosts-tiedoston avulla.
 
-\
-&nbsp;
+Lähdin tekemään danielin kotihakemistoon uudet kansiot nimeltä public_sites ja sen sisään unikarhu.com. unikarhu.com kansioon tein uuden html tiedoston nimeltä index.html. Tiedoston sisältö oli seuraavanlainen:
 
-### bonuskuorma 
-##### Mittaa koneesi kuormitusta työkalulla, joka kerää kuormitustietoja yli ajan (ei pelkästään yhdellä hetkellä). Kuormita konetta haluamallasi tavalla, ja etsi kuormitustieto työkalusi keräämästä historiasta.
+![kuva](https://user-images.githubusercontent.com/77921212/136703325-392a55b5-13ad-4097-94bc-a8ad0b766801.png)
 
+Sitten menin luomaan uuden config tiedoston komennolla `sudoedit /etc/apache2/sites-available/unikarhu.com.conf`.
+Sisällöstä tuli seruaavanlainen:
 
-\
-&nbsp;
+![kuva](https://user-images.githubusercontent.com/77921212/136706037-3fa32a6c-35e6-49a7-8ba1-352ead38df49.png)
 
-### Metapaketin uusi nimi
-##### Muuta metapaketin nimeksi xoy-tools. Asenna se.
+Tämän jälkeen otin VirtualHostin käyttöön komennolla `sudo a2ensite unikarhu.com.conf` ja otin vanhan virtualhostin poist käytöstä komennolla `sudo a2disste einariwsgi.conf`.
 
+Lopuksi menin vielä etc hosts kansioon, jonne lisäsin testipavelimen kohdalle unikarhu.example.com sivun. 
 
+![kuva](https://user-images.githubusercontent.com/77921212/136705691-e97e148a-bfe9-4dd1-bbb8-658e3b37741d.png)
+
+Sitten käynnistin palvelimen uudestaan komennolla `sudo systemctl restart apache2`.
+
+Sivu tuli onnistuneesti näkyviin
+
+![kuva](https://user-images.githubusercontent.com/77921212/136706058-3295c227-c440-4828-8574-5d0a0982f175.png)
 
 
 \
