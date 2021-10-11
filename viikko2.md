@@ -2,9 +2,9 @@
 
 
 ### Tehtävät: 
-1) Aiheuta lokiin kaksi eri tapahtumaa: yksi esimerkki onnistuneesta ja yksi esimerkki epäonnistuneesta tai kielletystä toimenpiteestä. Analysoi rivit yksityiskohtaisesti.
-2) Tee unelmien apt-get -komento: yksi komentorivi, joka asentaa suosikkiohjelmasi.
-3) Asenna komentokehotteen paketinhallinnasta kolme itsellesi uutta komentorivillä toimivaa ohjelmaa. Kokeile kutakin ohjelmaa sen pääasiallisessa käyttötarkoituksessasup>8</sup>
+1) Aiheuta lokiin kaksi eri tapahtumaa: yksi esimerkki onnistuneesta ja yksi esimerkki epäonnistuneesta tai kielletystä toimenpiteestä. Analysoi rivit yksityiskohtaisesti<sup>8</sup>
+2) Tee unelmien apt-get -komento: yksi komentorivi, joka asentaa suosikkiohjelmasi<sup>8</sup>
+3) Asenna komentokehotteen paketinhallinnasta kolme itsellesi uutta komentorivillä toimivaa ohjelmaa. Kokeile kutakin ohjelmaa sen pääasiallisessa käyttötarkoituksessa<sup>8</sup>
 
 \
 &nbsp;
