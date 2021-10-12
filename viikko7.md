@@ -210,7 +210,7 @@ Sisällöstä tuli seuraavanlainen:
 
 ![kuva](https://user-images.githubusercontent.com/77921212/136706037-3fa32a6c-35e6-49a7-8ba1-352ead38df49.png)
 
-Tämän jälkeen otin VirtualHostin käyttöön komennolla `sudo a2ensite unikarhu.com.conf` ja otin vanhan virtualhostin pois käytöstä komennolla `sudo a2disste einariwsgi.conf`.
+Tämän jälkeen otin VirtualHostin käyttöön komennolla `sudo a2ensite unikarhu.com.conf` ja otin vanhan virtualhostin pois käytöstä komennolla `sudo a2dissite einariwsgi.conf`.
 
 Lopuksi menin vielä `etc hosts` -kansioon, jonne lisäsin testipavelimen kohdalle `unikarhu.example.com` sivun. 
 
