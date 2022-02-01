@@ -1,3 +1,5 @@
 # Linux-palvelimet
 
-Kaikki Linux-palvelimet -kurssin viikkotehtävät kronologisessa järjestyksessä. 
+## Tekijä: Daniel Tarsalainen
+
+Kaikki Haaga-Helian Linux-palvelimet -kurssin viikkotehtävät kronologisessa järjestyksessä. 
